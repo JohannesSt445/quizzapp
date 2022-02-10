@@ -8,8 +8,8 @@ $m = null;
             
             $p = $_POST['Passwort'];
            
-            $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
-            $stmt ->execute(['user' => $u]);
+            $stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
+            $stmt ->execute([$u]);
             $rowcount = $stmt->rowCount();
             if($rowcount == 0)
             {
