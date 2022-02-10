@@ -13,9 +13,9 @@
 <body>
 
 <?php
-/*
-$m = null;
 
+$m = null;
+/*
 if(isset($_POST['sub'])){
 
 
