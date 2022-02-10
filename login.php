@@ -7,7 +7,7 @@ $m = null;
             $u = $_POST['User'];
             
             $p = $_POST['Passwort'];
-           
+           //oracle
             $stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
             $stmt ->execute([$u]);
             $rowcount = $stmt->rowCount();
