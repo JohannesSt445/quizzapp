@@ -25,12 +25,15 @@ require 'connect.php';
 $u = $_POST['User'];
 
 $p = $_POST['Passwort'];
- /*
+ 
 
         //oracle
 
-$stid = oci_parse($conn, 'SELECT * FROM account WHERE name = :user');
+$stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
+$stmt ->execute(array($u));
 
+
+/*
 oci_bind_by_name($stid, ':user',$_POST['User']);
 
 
