@@ -19,13 +19,12 @@ $m = null;
             {
                 session_start();
 
-            $_SESSION ['Benutzer'] = $u; // Session Variable
+            $_SESSION ['Benutzer'] = $u; 
 
             header('Location: sicher.php');
 
             }
 
-        // wenn es nicht das Passwort ist
 
  else {
 
