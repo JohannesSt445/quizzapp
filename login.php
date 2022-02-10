@@ -1,6 +1,6 @@
 <?php
 
-$m = null;
+//$m = null;
 
 //if(isset($_POST['sub'])){
 
@@ -8,9 +8,9 @@ $m = null;
 
 //require 'connect.php';
 
-$u = $_POST['User'];
+//$u = $_POST['User'];
 
-$p = $_POST['Passwort'];
+//$p = $_POST['Passwort'];
  
 
         //oracle
