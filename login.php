@@ -1,46 +1,39 @@
 <?php
-
-
-
-
-
-
-
-    $tns = "quizzapp_high"; 
-
-    $user = "quizzteam2"; 
-    
-    $password = "QuizzApp9755"; 
-    
-    
+$m = null;
     if(isset($_POST['sub'])){
-    try { 
-    
-         $conn = new PDO("oci:dbname=".$tns, $user, $password); 
-    
-         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-    
-         
+
+        require "connect.php";
 
             $u = $_POST['User'];
             
             $p = $_POST['Passwort'];
-             
-            
-        
             
             $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
             $stmt ->execute(array('user' => $u));
-            $log = $stmt->fetchAll();
-        
-        
-    
-    } catch(PDOException $e) { 
-    
-         echo 'ERROR: ' . $e->getMessage(); 
-    
-    } 
-}
+            while($row =$stmt->fetch())
+            {
+                $pass = $row['Passwort'] ;
+               
+            }
+            if($pass == $p)
+            {
+                session_start();
+
+            $_SESSION ['Benutzer'] = $u; // Session Variable
+
+            header('Location: sicher.php');
+
+            }
+
+        // wenn es nicht das Passwort ist
+
+ else {
+
+$m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
+
+ }
+            }
+
     
 ?>
 
@@ -57,7 +50,9 @@
 </head>
 
 <body>
-
+<?php
+echo $m;
+?>
 
 
 <form method="post">
