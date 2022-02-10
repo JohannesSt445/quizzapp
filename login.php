@@ -27,6 +27,7 @@ $m = null;
     $password = "QuizzApp9755"; 
     
     $conn = new PDO("oci:dbname=".$tns, $user, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
 $u = $_POST['User'];
 
