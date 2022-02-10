@@ -1,17 +1,3 @@
-<!doctype html>
-
-<html>
-
-<head>
-
- <title>Login</title>
-
-<meta charset= "utf-8">
-
-</head>
-
-<body>
-
 <?php
 
 $m = null;
@@ -98,6 +84,22 @@ $m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
 
 */
 ?>
+
+<!doctype html>
+
+<html>
+
+<head>
+
+ <title>Login</title>
+
+<meta charset= "utf-8">
+
+</head>
+
+<body>
+
+
 
 <form method="post">
 
