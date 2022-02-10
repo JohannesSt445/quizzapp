@@ -43,7 +43,7 @@ session_start();
 
  $_SESSION ['Benutzer'] = $u; // Session Variable
 
-//header('Location: sicher.php');
+header('Location: sicher.php');
 
  }
 
