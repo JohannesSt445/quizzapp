@@ -13,7 +13,7 @@
     $password = "QuizzApp9755"; 
     
     
-    
+    if(isset($_POST['sub'])){
     try { 
     
          $conn = new PDO("oci:dbname=".$tns, $user, $password); 
@@ -21,6 +21,18 @@
          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
     
          
+
+            $u = $_POST['User'];
+            
+            $p = $_POST['Passwort'];
+             
+            
+                    //oracle
+            
+            $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
+            $stmt ->execute(array('user' => $u));
+            $log = $stmt->fetchAll();
+        
         
     
     } catch(PDOException $e) { 
@@ -28,7 +40,7 @@
          echo 'ERROR: ' . $e->getMessage(); 
     
     } 
-    
+}
     
 ?>
 
