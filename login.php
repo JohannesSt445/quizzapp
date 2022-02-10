@@ -7,9 +7,7 @@ $m = null;
             $u = $_POST['User'];
             
             $p = $_POST['Passwort'];
-            
-            $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
-            $stmt ->execute(array('user' => $u));
+            echo $conn;
             
         }
 
