@@ -29,6 +29,11 @@
             
         
             
+            $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
+            $stmt ->execute(array('user' => $u));
+            $log = $stmt->fetchAll();
+        
+        
     
     } catch(PDOException $e) { 
     
