@@ -20,19 +20,7 @@
     
          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
     
-         if(isset($_POST['sub'])){
-
-            $u = $_POST['User'];
-            
-            $p = $_POST['Passwort'];
-             
-            
-                    //oracle
-            
-            $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
-            $stmt ->execute(array('user' => $u));
-            $log = $stmt->fetchAll();
-        }
+         
         
     
     } catch(PDOException $e) { 
