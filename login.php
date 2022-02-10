@@ -1,9 +1,14 @@
 <?php
 require 'connect.php';
 
-$sql = $conn->prepare("SELECT * FROM kategorie");
-print($sql);
+$query = $conn->query("select * from kategorie");
+echo 'Command executed<br>'; 
 
+  
 
-print("hallo");
+        $rows = $query->fetchAll(); 
+
+  
+
+        print_r($rows);  
 ?>
