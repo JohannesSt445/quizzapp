@@ -29,8 +29,9 @@ $p = $_POST['Passwort'];
 
         //oracle
 
-$stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
-//$stmt ->execute(array($u));
+$stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
+$stmt ->execute(array('user' => $u));
+$log = $stmt->fetch();
 
 
 /*
