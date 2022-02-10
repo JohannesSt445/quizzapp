@@ -6,7 +6,7 @@ $m = null;
 
 
 
-require 'connect.php';
+//require 'connect.php';
 
 $u = $_POST['User'];
 
