@@ -7,8 +7,39 @@ $m = null;
             $u = $_POST['User'];
             
             $p = $_POST['Passwort'];
-            echo $conn;
-            
+            $conn = new PDO("oci:dbname="."quizzapp_high", "quizzteam2", "QuizzApp9755"); 
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
+            $stmt ->execute(array('user' => $u));
+            $rowcount = $stmt->rowCount();
+            if($rowcount == 0)
+            {
+                $m = "Dieser Benutzer existiert nicht!";
+                
+            }
+            else{
+                while($row =$stmt->fetch())
+                {
+                    $pass = $row['Passwort'] ;
+               
+                }
+                if($pass == $p)
+                {
+                    session_start();
+
+                    $_SESSION ['Benutzer'] = $u; 
+
+                    header('Location: sicher.php');
+
+                }
+
+
+                else {
+
+                        $m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
+
+                }
+            }   
         }
 
     
