@@ -7,10 +7,10 @@ $m = null;
             $u = $_POST['User'];
             
             $p = $_POST['Passwort'];
-            $conn = new PDO("oci:dbname="."quizzapp_high", "quizzteam2", "QuizzApp9755"); 
-         
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           echo $conn;
+           
+            $stmt = $conn->query("SELECT * FROM account "); 
+            $m = $stmt ->fetch();
+            
         }
 
     
