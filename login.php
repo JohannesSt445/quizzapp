@@ -30,7 +30,7 @@ $p = $_POST['Passwort'];
         //oracle
 
 $stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
-$stmt ->execute(array($u));
+//$stmt ->execute(array($u));
 
 
 /*
