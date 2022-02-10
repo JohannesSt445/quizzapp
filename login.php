@@ -10,28 +10,36 @@ $m = null;
             
             $stmt = $conn->prepare("SELECT * FROM account WHERE name = :user"); 
             $stmt ->execute(array('user' => $u));
-            while($row =$stmt->fetch())
+            $rowcount = $stmt->rowCount();
+            if($rowcount == 0)
             {
-                $pass = $row['Passwort'] ;
+                $m = "Dieser Benutzer existiert nicht!";
+                
+            }
+            else{
+                while($row =$stmt->fetch())
+                {
+                    $pass = $row['Passwort'] ;
                
-            }
-            if($pass == $p)
-            {
-                session_start();
+                }
+                if($pass == $p)
+                {
+                    session_start();
 
-            $_SESSION ['Benutzer'] = $u; 
+                    $_SESSION ['Benutzer'] = $u; 
 
-            header('Location: sicher.php');
+                    header('Location: sicher.php');
 
-            }
+                }
 
 
- else {
+                else {
 
-$m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
+                        $m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
 
- }
-            }
+                }
+            }   
+        }
 
     
 ?>
