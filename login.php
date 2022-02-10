@@ -20,7 +20,7 @@
 
 $m = null;
 
-if(isset($_POST['sub'])){
+//if(isset($_POST['sub'])){
 
 
 
