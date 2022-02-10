@@ -10,5 +10,6 @@ echo 'Command executed<br>';
 
   
 
-        print_r($rows);  
+        print_r($rows);
+        // hallo bitte
 ?>
