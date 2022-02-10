@@ -15,7 +15,7 @@ $p = $_POST['Passwort'];
 
         //oracle
 
-$stid = oci_parse($conn, 'SELECT * FROM account WHERE name = :user');
+/*$stid = oci_parse($conn, 'SELECT * FROM account WHERE name = :user');
 
 oci_bind_by_name($stid, ':user',$_POST['User']);
 
@@ -58,7 +58,7 @@ $m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
 }
 
 
-
+*/
 ?>
 
 
