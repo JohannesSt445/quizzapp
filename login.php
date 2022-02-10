@@ -27,7 +27,7 @@
             $p = $_POST['Passwort'];
              
             
-                    //oracle
+        
             
     
     } catch(PDOException $e) { 
