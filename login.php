@@ -21,11 +21,11 @@ $m = null;
 
 
 require 'connect.php';
-/*
+
 $u = $_POST['User'];
 
 $p = $_POST['Passwort'];
- 
+ /*
 
         //oracle
 
