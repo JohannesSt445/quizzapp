@@ -26,9 +26,22 @@ $m = null;
     
     $password = "QuizzApp9755"; 
     
-    $conn = new PDO("oci:dbname=".$tns, $user, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-
+    
+    
+    try { 
+    
+         $conn = new PDO("oci:dbname=".$tns, $user, $password); 
+    
+         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    
+        
+    
+    } catch(PDOException $e) { 
+    
+         echo 'ERROR: ' . $e->getMessage(); 
+    
+    } 
+    
 $u = $_POST['User'];
 
 $p = $_POST['Passwort'];
