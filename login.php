@@ -15,13 +15,13 @@
 <?php
 
 $m = null;
-/*
-if(isset($_POST['sub'])){
+
+//if(isset($_POST['sub'])){
 
 
 
 require 'connect.php';
-
+/*
 $u = $_POST['User'];
 
 $p = $_POST['Passwort'];
