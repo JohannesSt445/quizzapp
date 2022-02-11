@@ -2,7 +2,7 @@ const registrieren = document.querySelector('input[type="submit"]');
 var status;
 registrieren.addEventListener('click',()=>{
   const formData = new FormData(document.querySelector('form'))
-  fetch('http://quizzapp.chickenkiller.com/backend/api.php', {
+  fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php', {
     method: 'POST',
     body: formData
   })
