@@ -75,16 +75,22 @@ function registrieren($conn)
     //Prüfen, ob email oder username bereits existieren
     $sql = $conn->prepare("SELECT * FROM Account WHERE name = ? OR email = ?");
     $sql->execute(array($user, $email));
-    $rowcount = $sql->rowcount();
+    $rowcount = $sql->fetchColumn();
     if ($rowcount > 0) {
         //http_response_code(400);
         echo "Benutzername oder E-Mail existieren bereits";
         exit();
     }
 
+    //AccountID hochzählen
+    $sql = $conn -> prepare("SELECT COUNT(AccountID) FROM Account"); 
+    $sql->execute(); 
+    $result = $sql -> fetch(); 
+    $counter = $result + 1;
+
     //Daten in DB einfügen
-    $sql = $conn->prepare("INSERT INTO Account (AccountID, Name, Passwort, Email) VALUES(?, '', '', '')");
-    $sql->execute(array($user, $email, $pass));
+    $sql = $conn->prepare("INSERT INTO Account (AccountID, Name, Passwort, Email) VALUES(?, ?, ?, ?)");
+    $sql->execute(array($counter, $user, $email, $pass));
     if ($sql->rowCount() > 0) {
         //http_response_code(200);
         echo "Registriert!";
