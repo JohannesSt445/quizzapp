@@ -26,7 +26,7 @@ function login($conn)
     //oracle check ob Account existiert
     $sql = $conn->prepare("SELECT name, passwort, email FROM account WHERE name = ? OR email = ?");
     $sql->execute([$u, $e]);
-    $rowcount = $sql->rowCount();
+    $rowcount = $sql->fetchColumn();
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
     } else {
