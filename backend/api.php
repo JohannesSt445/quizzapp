@@ -83,11 +83,14 @@ function registrieren($conn)
     }
 
     //AccountID hochzählen
-    
+    $sql = $conn -> prepare("SELECT COUNT(AccountID) FROM Account"); 
+    $sql->execute(); 
+    $result = $sql -> fetchColumn(); 
+    $counter = $result + 1;
 
     //Daten in DB einfügen
     $sql = $conn->prepare("INSERT INTO Account (AccountID, Name, Passwort, Email) VALUES(?, ?, ?, ?)");
-    $sql->execute(array(1, $user, $email, $pass));
+    $sql->execute(array(1, $user, $pass, $email));
     if ($sql->rowCount() > 0) {
         //http_response_code(200);
         echo "Registriert!";
