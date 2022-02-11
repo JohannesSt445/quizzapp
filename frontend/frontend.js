@@ -9,3 +9,4 @@ login.addEventListener('click' ,()=>{location.href="./login.html"});
 update.addEventListener('click', ()=>{location.href="./update.html"});
 logout.addEventListener('click' ,()=>{});
 registrieren.addEventListener();
+login.addEventListener();
