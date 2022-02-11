@@ -1,5 +1,5 @@
-const login = document.querySelector('input[type="submit"]')
-var status
+const login = document.querySelector('input[type="submit"]');
+var status;
 login.addEventListener('click',()=>{
   const formData = new FormData(document.querySelector('form'))
   fetch('http://quizzapp.chickenkiller.com/backend/api.php', {
