@@ -1,92 +1,105 @@
 <?php
-$m = null;
-    if(isset($_POST['sub'])){
+require "connect.php";
 
-        require "connect.php";
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "login")
+    login($conn);
 
-            $u = $_POST['User'];
-            
-            $p = $_POST['Passwort'];
-           //oracle
-            $stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
-            $stmt ->execute([$u]);
-            $rowcount = $stmt->rowCount();
-            if($rowcount == 0)
-            {
-                $m = "Dieser Benutzer existiert nicht!";
-                
-            }
-            else{
-                while($row =$stmt->fetch())
-                {
-                    $pass = $row['Passwort'] ;
-               
-                }
-                if($pass == $p)
-                {
-                    session_start();
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "registrieren")
+    registrieren($conn);
 
-                    $_SESSION ['Benutzer'] = $u; 
+if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
+    passVergessen($conn);
 
-                    header('Location: sicher.php');
+if ($_SERVER['REQUEST_METHOD'] == "GET")
+    logout($conn);
 
-                }
+if ($_SERVER['REQUEST_METHOD'] == "PATCH")
+    update($conn);
 
+//Einloggen
+function login($conn)
+{
+    $u = $_POST['user'];
+    $p = $_POST['passwort'];
+    $e = $_POST['email'];
 
-                else {
-
-                        $m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
-
-                }
-            }   
+    //oracle check ob Account existiert
+    $sql = $conn->prepare("SELECT name, passwort, email FROM account WHERE name = ? OR email = ?");
+    $sql->execute([$u, $e]);
+    $rowcount = $sql->rowCount();
+    if ($rowcount == 0) {
+        echo "Dieser Benutzer existiert nicht!";
+    } else {
+        while ($row = $sql->fetch()) {
+            $pass = $row['passwort'];
         }
+        if ($pass == $p) {
+            session_start();
 
+            $_SESSION['user'] = $u;
+
+            echo "Login erfolgreich";
+            exit();
+        } else {
+
+            echo '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
+            exit();
+        }
+    }
+}
+
+//Registrieren
+function registrieren($conn)
+{
+    $user = $_POST['user'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $pass2 = $_POST['pass2'];
+
+    if ($user == null || $email == null || $pass == null || $pass2 == null) {
+        //http_response_code(400);
+        echo "Bitte Daten eingeben";
+        exit();
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        //http_response_code(400);
+        echo "Die E-Mail-Adresse ist ungültig!";
+        exit();
+    }
+    if ($pass != $pass2) {
+        //http_response_code(400);
+        echo "Passwörter stimmen nicht überein";
+        exit();
+    }
+
+    //Prüfen, ob email oder username bereits existieren
+    $sql = $conn->prepare("SELECT * FROM Account WHERE name = ? OR email = ?");
+    $sql->execute(array($user, $email));
+    $rowcount = $sql->rowcount();
+    if ($rowcount > 0) {
+        //http_response_code(400);
+        echo "Benutzername oder E-Mail existieren bereits";
+        exit();
+    }
+
+    //Daten in DB einfügen
+    $sql = $conn->prepare("INSERT INTO Account (AccountID, Name, Passwort, Email) VALUES(?, '', '', '')");
+    $sql->execute(array($user, $email, $pass));
+    if ($sql->rowCount() > 0) {
+        //http_response_code(200);
+        echo "Registriert!";
+        exit();
+    } else {
+        //http_response_code(400);
+        echo "Registrierung fehlgeschlagen!";
+        exit();
+    }
+}
+
+function passVergessen($conn){
     
-?>
+}
 
-<!doctype html>
+function logout($conn){}
 
-<html>
-
-<head>
-
- <title>Login</title>
-
-<meta charset= "utf-8">
-
-</head>
-
-<body>
-<?php
-echo $m;
-?>
-
-
-<form method="post">
-
-Username:<br>
-
-<input name="User">
-
-<br><br>
-
-Email:<br>
-
-<input name="Email">
-
-<br><br>
-
- Passwort:<br>
-
-<input type="password" name="Passwort">
-
-<br><br>
-<input type="submit" name="sub" value="Login">
-
-<input type="button" name="sub2" value="Registrieren" onclick="location.href='sicher2.php'">
-
-</form>
-
-</body>
-
-</html>
+function update($conn){}
