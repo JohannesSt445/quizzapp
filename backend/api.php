@@ -1,9 +1,52 @@
 <?php
-//$m = null;
-//if(isset($_POST['sub'])){
 require "connect.php";
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "login")
+    login($conn);
+
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "registrieren")
     registrieren($conn);
+
+if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
+    passVergessen($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == "GET")
+    logout($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == "PATCH")
+    update($conn);
+
+//Einloggen
+function login($conn)
+{
+    $u = $_POST['user'];
+    $p = $_POST['passwort'];
+    $e = $_POST['email'];
+
+    //oracle check ob Account existiert
+    $sql = $conn->prepare("SELECT name, passwort, email FROM account WHERE name = ? OR email = ?");
+    $sql->execute([$u, $e]);
+    $rowcount = $sql->rowCount();
+    if ($rowcount == 0) {
+        echo "Dieser Benutzer existiert nicht!";
+    } else {
+        while ($row = $sql->fetch()) {
+            $pass = $row['passwort'];
+        }
+        if ($pass == $p) {
+            session_start();
+
+            $_SESSION['user'] = $u;
+
+            echo "Login erfolgreich";
+            exit();
+        } else {
+
+            echo '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
+            exit();
+        }
+    }
+}
 
 //Registrieren
 function registrieren($conn)
@@ -14,17 +57,17 @@ function registrieren($conn)
     $pass2 = $_POST['pass2'];
 
     if ($user == null || $email == null || $pass == null || $pass2 == null) {
-        http_response_code(400);
+        //http_response_code(400);
         echo "Bitte Daten eingeben";
         exit();
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
+        //http_response_code(400);
         echo "Die E-Mail-Adresse ist ungültig!";
         exit();
     }
     if ($pass != $pass2) {
-        http_response_code(400);
+        //http_response_code(400);
         echo "Passwörter stimmen nicht überein";
         exit();
     }
@@ -34,7 +77,7 @@ function registrieren($conn)
     $sql->execute(array($user, $email));
     $rowcount = $sql->rowcount();
     if ($rowcount > 0) {
-        http_response_code(400);
+        //http_response_code(400);
         echo "Benutzername oder E-Mail existieren bereits";
         exit();
     }
@@ -43,49 +86,20 @@ function registrieren($conn)
     $sql = $conn->prepare("INSERT INTO Account (AccountID, Name, Passwort, Email) VALUES(?, '', '', '')");
     $sql->execute(array($user, $email, $pass));
     if ($sql->rowCount() > 0) {
-        http_response_code(200);
+        //http_response_code(200);
         echo "Registriert!";
         exit();
     } else {
-        http_response_code(400);
+        //http_response_code(400);
         echo "Registrierung fehlgeschlagen!";
         exit();
     }
 }
-            /*
-            $u = $_POST['User'];
-            
-            $p = $_POST['Passwort'];
-           //oracle
-            $stmt = $conn->prepare("SELECT * FROM account WHERE name = ?"); 
-            $stmt ->execute([$u]);
-            $rowcount = $stmt->rowCount();
-            if($rowcount == 0)
-            {
-                $m = "Dieser Benutzer existiert nicht!";
-                
-            }
-            else{
-                while($row =$stmt->fetch())
-                {
-                    $pass = $row['Passwort'] ;
-               
-                }
-                if($pass == $p)
-                {
-                    session_start();
 
-                    $_SESSION ['Benutzer'] = $u; 
+function passVergessen($conn){
+    
+}
 
-                    header('Location: sicher.php');
+function logout($conn){}
 
-                }
-
-
-                else {
-
-                        $m = '<p>Login ist fehlerhaft! Passwort oder Username ist falsch!</p>';
-
-                }
-            }   
-        }*/
+function update($conn){}
