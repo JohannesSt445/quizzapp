@@ -1,5 +1,5 @@
-const registrieren = document.querySelector('input[type="submit"]')
-var status
+const registrieren = document.querySelector('input[type="submit"]');
+var status;
 registrieren.addEventListener('click',()=>{
   const formData = new FormData(document.querySelector('form'))
   fetch('http://quizzapp.chickenkiller.com/backend/api.php', {
