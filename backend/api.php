@@ -56,7 +56,7 @@ function registrieren($conn)
     $pass = $_POST['pass'];
     $pass2 = $_POST['pass2'];
 
-    if ($user == null || $email == null || $pass == null || $pass2 == null) {
+    if (empty($user) || empty($email) || empty($pass) || empty($pass2)) {
         //http_response_code(400);
         echo "Bitte Daten eingeben";
         exit();
@@ -97,7 +97,7 @@ function registrieren($conn)
 }
 
 function passVergessen($conn){
-    
+
 }
 
 function logout($conn){}
