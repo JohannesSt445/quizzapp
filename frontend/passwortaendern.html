@@ -2,23 +2,41 @@
 
 <head>
 
- <style>
-	h1 {margin-left: 700px; font-size: 30px; font-family: times new roman;}
-	h2 {margin-left: 650px;font-size: 20px; font-family: times new roman;}
-	h4 {margin-left: 720px;font-size: 20px; font-family: times new roman;}
- </style>
+  <style>
+    h1 {
+      margin-left: 700px;
+      font-size: 30px;
+      font-family: times new roman;
+    }
+
+    h2 {
+      margin-left: 650px;
+      font-size: 20px;
+      font-family: times new roman;
+    }
+
+    h4 {
+      margin-left: 720px;
+      font-size: 20px;
+      font-family: times new roman;
+    }
+  </style>
 
 </head>
 
-<h1> Passwort ändern <h1> </br>
-<h2><span style="width:100px; display: inline-block;"> Neues Passwort</span><input type="password" name="" value="">
-<h2><span style="width:100px; display: inline-block;"> Passwort wiederholen</span><input type="password" name="" value="" ></h2></br>
+<body>
+  <h1> Passwort ändern <h1> </br>
+      <form onsubmit="return false;">
+        <h2><span style="width:100px; display: inline-block;"> Neues Passwort</span><input type="password" name="pass">
+          <h2><span style="width:100px; display: inline-block;"> Passwort wiederholen</span><input type="password"
+              name="pass2"></h2></br>
 
- 
-<h4><button style="height:30px;width:150px;">Login</button></h4>
+          <input type="hidden" name="hiddensite" value="pwchange">
+          <h4><input type="submit" value="Zurücksetzen"></h4>
+      </form>
 
+      <script src="passwortaendern.js" defer></script>
 
-    <script src="/changepass.js" defer></script>
+</body>
 
-  </body>
 </html>

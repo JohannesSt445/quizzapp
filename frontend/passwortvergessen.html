@@ -2,24 +2,43 @@
 
 <head>
 
- <style>
-	h1 {margin-left: 700px; font-size: 30px; font-family: times new roman;}
-	h2 {margin-left: 600px;font-size: 20px; font-family: times new roman;}
-	h4 {margin-left: 670px;font-size: 20px; font-family: times new roman;}
- </style>
+  <style>
+    h1 {
+      margin-left: 700px;
+      font-size: 30px;
+      font-family: times new roman;
+    }
+
+    h2 {
+      margin-left: 600px;
+      font-size: 20px;
+      font-family: times new roman;
+    }
+
+    h4 {
+      margin-left: 670px;
+      font-size: 20px;
+      font-family: times new roman;
+    }
+  </style>
 
 </head>
 
-<h1> Login <h1> </br>
-<h2><span style="width:100px; display: inline-block;"> Email</span><input type="text" name="" value="">
-<h2><span style="width:100px; display: inline-block;"> Username</span><input type="text" name="" value="" ></h2></br>
-
- 
-<h4><button style="height:50px;width:150px;">Passwort zurücksetzen</button></h4>
-
-    <script src="/forgot.js" defer></script>
+<body>
+  <h1> Login <h1> </br>
+      <form onsubmit="return false;">
+        <h2><span style="width:100px; display: inline-block;"> Email</span><input type="text" name="email">
+          <h2><span style="width:100px; display: inline-block;"> Username</span><input type="text" name="user"></h2>
+          </br>
 
 
+          <input type="hidden" name="hiddensite" value="pwchange">
+          <h4><input type="submit" value="Zurücksetzen"></h4>
+      </form>
+      <script src="passwortvergessen.js" defer></script>
 
-  </body>
+
+
+</body>
+
 </html>
