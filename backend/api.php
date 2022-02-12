@@ -32,8 +32,7 @@ function login($conn)
     } else {
         while ($row = $sql->fetchAll()) {
             $pass = $row['passwort'];
-        }
-
+        
         //$r = $sql->fetchAll();
         if (!password_verify($p, $pass)) {
 
@@ -47,6 +46,7 @@ function login($conn)
             echo "Login erfolgreich";
             exit();
         }
+    }
     }
 }
 
