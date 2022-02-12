@@ -34,14 +34,15 @@ function login($conn)
             $pass = $row['passwort'];
         }
         if (!password_verify($pass, $p['passwort'])) {
+
+            echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
+
+            exit();
+        } else {
             session_start();
 
             $_SESSION['user'] = $u;
-
             echo "Login erfolgreich";
-            exit();
-        } else {
-            echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
             exit();
         }
     }
