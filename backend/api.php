@@ -161,15 +161,10 @@ function edit($conn)
     $sql = $conn->prepare("SELECT * FROM Account WHERE name = ? OR email = ?");
     $sql->execute(array($u, $e));
     $rowcount = $sql->fetchColumn();
-    if ($rowcount > 0) {
-        //http_response_code(400);
-        //echo "Benutzername oder E-Mail existieren bereits";
-        exit();
-    }else{
+    if ($rowcount == 0) {
         echo "Benutzer oder Email existiert nicht!";
         exit();
     }
-
     $sql = $conn->prepare("UPDATE account SET name = '$u', `email` = '$e' 
 		WHERE accountid = $id;");
 
