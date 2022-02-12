@@ -33,7 +33,7 @@ function login($conn)
         while ($row = $sql->fetchAll()) {
             $pass = $row['passwort'];
         }
-        if (password_verify($pass, $row['passwort'])) {
+        if (password_verify($pass, $p['passwort'])) {
             session_start();
 
             $_SESSION['user'] = $u;
