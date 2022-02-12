@@ -35,7 +35,7 @@ function login($conn)
         }
 
 
-        if (!password_verify($p, $row['passwort'])) {
+        if (!password_verify($p, $pass)) {
 
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
 
