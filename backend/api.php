@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "login")
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "registrieren")
     registrieren($conn);
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
     passVergessen($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == "GET")
@@ -83,9 +83,9 @@ function registrieren($conn)
     }
 
     //AccountID hochzählen
-    $sql = $conn -> query("SELECT COUNT(AccountID) FROM Account"); 
+    $sql = $conn->query("SELECT COUNT(AccountID) FROM Account");
 
-    $result = $sql -> fetchColumn(); 
+    $result = $sql->fetchColumn();
     $counter = $result + 1;
 
     //Daten in DB einfügen
@@ -102,20 +102,55 @@ function registrieren($conn)
     }
 }
 
-function passVergessen($conn){
-    
+function passVergessen($conn)
+{
+    $user = $_POST['user'];
+    $email = $_POST['email'];
+    //DB check username
+    $sql = $conn->prepare("SELECT name, email, passwort FROM Account WHERE name = ? OR email = ?");
+    $sql->execute(array($user, $email));
+    $row_count = $sql->rowCount();
+    if ($row_count == 0) {
+        echo "Benutzername oder Email existieren nicht.";
+        exit();
+    }
+
+    //Generate token
+    $passtoken = $email . password_hash($user, PASSWORD_BCRYPT);
+
+    //DB UPDATE token into spieler
+    $sql = $conn->prepare("UPDATE account SET passtoken = ? WHERE name = ? ");
+    $sql->execute(array($passtoken, $user));
+    if ($sql->rowCount() > 0) {
+        send_email($email, $passtoken);
+    } else {
+        http_response_code(400);
+        echo "Something went wrong! Please try again later.";
+        exit();
+    }
 }
 
-function logout($conn){
+
+function send_email($adresse, $token)
+{
+    $msg = "http://quizzapp.chickenkiller.com/quizzapp/frontend/passwortaendern.html" . "?token=" . $token;
+    mail($adresse, 'Passwort ändern', $msg);
+}
+
+
+function logout($conn)
+{
     //session key wird resettet
     session_start();
-	unset($_SESSION['user']);
+    unset($_SESSION['user']);
 
-	//Löschen der kompletten Session
-	//unset($_SESSION);
-	session_destroy();
+    //Löschen der kompletten Session
+    //unset($_SESSION);
+    session_destroy();
     echo "Erfolgreich ausgeloggt";
-	header('Location: index.html');
- }
+    header('Location: index.html');
+}
 
-function update($conn){}
+function update($conn)
+{
+}
