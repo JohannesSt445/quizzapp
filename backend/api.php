@@ -31,7 +31,7 @@ function login($conn)
         echo "Dieser Benutzer existiert nicht!";
     } else {
         $result = $sql->fetchAll();
-        if (password_verify($p, $result["Passwort"])) {
+        if (password_verify($p, $result)) {
 
             session_start();
 
