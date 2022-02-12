@@ -30,10 +30,10 @@ function login($conn)
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
     } else {
-        while ($row = $sql->fetch()) {
+        while ($row = $sql->fetchAll()) {
             $pass = $row['passwort'];
         }
-        if ($pass == $p) {
+        if (password_verify($pass, $row['passwort'])) {
             session_start();
 
             $_SESSION['user'] = $u;
