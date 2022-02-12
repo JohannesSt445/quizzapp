@@ -158,7 +158,7 @@ function edit($conn)
     $id = $_POST['hiddensite'];
 
     //Prüfen, ob email oder username bereits existieren
-    $sql = $conn->prepare("SELECT * FROM Account WHERE name = ? OR email = ?");
+    $sql = $conn->prepare("SELECT * FROM Account WHERE name = ? AND email = ?");
     $sql->execute(array($u, $e));
     $rowcount = $sql->fetchColumn();
     if ($rowcount == 0) {
