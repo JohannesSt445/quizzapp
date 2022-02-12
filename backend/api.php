@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "PATCH")
 function login($conn)
 {
     $u = $_POST['user'];
-    $p = $_POST['passwort'];
+    $p = $_POST['pass'];
     $e = $_POST['email'];
 
     //oracle check ob Account existiert
@@ -30,12 +30,8 @@ function login($conn)
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
     } else {
-        while ($row = $sql->fetchAll()) {
-            $pass = $row['passwort'];
-        }
-
-
-        if (!password_verify($p, $pass)) {
+        $result = $sql->fetchAll();
+        if (!password_verify($p, $result["Passwort"])) {
 
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
 
