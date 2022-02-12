@@ -33,7 +33,9 @@ function login($conn)
         while ($row = $sql->fetchAll()) {
             $pass = $row['passwort'];
         }
-        if (password_verify($pass, $p['passwort'])) {
+
+        $r = $sql->fetchAll();
+        if (!password_verify($pass, $r['passwort'])) {
 
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
 
