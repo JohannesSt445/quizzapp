@@ -103,9 +103,19 @@ function registrieren($conn)
 }
 
 function passVergessen($conn){
-
+    
 }
 
-function logout($conn){}
+function logout($conn){
+    //session key wird resettet
+    session_start();
+	unset($_SESSION['user']);
+
+	//Löschen der kompletten Session
+	//unset($_SESSION);
+	session_destroy();
+    echo "Erfolgreich ausgeloggt";
+	header('Location: index.html');
+ }
 
 function update($conn){}
