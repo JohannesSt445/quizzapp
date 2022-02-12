@@ -133,7 +133,7 @@ function passVergessen($conn)
 
 function send_email($adresse, $token)
 {
-    $msg = "http://quizzapp.chickenkiller.com/quizzapp/frontend/passwortaendern.html" . "?token=" . $token;
+    $msg = "http://quizzapp.chickenkiller.com/quizzapp/frontend/passwortaendern.html" . "?passtoken=" . $token;
     mail($adresse, 'Passwort ändern', $msg);
 }
 
