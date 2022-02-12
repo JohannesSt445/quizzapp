@@ -31,16 +31,16 @@ function login($conn)
         echo "Dieser Benutzer existiert nicht!";
     } else {
         $result = $sql->fetchAll();
-        if (!password_verify($p, $result["Passwort"])) {
+        if (password_verify($p, $result["Passwort"])) {
 
-            echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
-
-            exit();
-        } else {
             session_start();
 
             $_SESSION['user'] = $u;
             echo "Login erfolgreich";
+
+            exit();
+        } else {
+            echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
             exit();
         }
     }
