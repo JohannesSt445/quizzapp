@@ -156,6 +156,20 @@ function edit($conn)
     $u = $_POST['user'];
     $e = $_POST['email'];
     $id = $_POST['hiddensite'];
+
+    //Prüfen, ob email oder username bereits existieren
+    $sql = $conn->prepare("SELECT * FROM Account WHERE name = ? OR email = ?");
+    $sql->execute(array($u, $e));
+    $rowcount = $sql->fetchColumn();
+    if ($rowcount > 0) {
+        //http_response_code(400);
+        //echo "Benutzername oder E-Mail existieren bereits";
+        exit();
+    }else{
+        echo "Benutzer oder Email existiert nicht!";
+        exit();
+    }
+
     $sql = $conn->prepare("UPDATE account SET name = '$u', `email` = '$e' 
 		WHERE accountid = $id;");
 
