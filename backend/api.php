@@ -39,7 +39,7 @@ function login($conn)
             echo "Login erfolgreich";
 
             exit();
-        } else {
+        } else if(password_verify($p, $result["passwort"])) {
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
             exit();
         }
