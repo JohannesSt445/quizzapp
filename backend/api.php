@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
 if ($_SERVER['REQUEST_METHOD'] == "GET")
     logout($conn);
 
-if ($_SERVER['REQUEST_METHOD'] == "PATCH")
-    update($conn);
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "edit")
+    edit($conn);
 
 //Einloggen
 function login($conn)
@@ -118,7 +118,7 @@ function passVergessen($conn)
     $passtoken = $email . password_hash($user, PASSWORD_BCRYPT);
 
     //DB UPDATE token into spieler
-    $sql = $conn->prepare("UPDATE account SET passtoken = ? WHERE name = ? ");
+    $sql = $conn->prepare("UPDATE account SET passtoken = ? WHERE name = ?");
     $sql->execute(array($passtoken, $user));
     if ($sql->rowCount() > 0) {
         send_email($email, $passtoken);
@@ -150,6 +150,23 @@ function logout($conn)
     header('Location: index.html');
 }
 
-function update($conn)
+function edit($conn)
 {
+    //Variablen anlegen um den anktuellen Wert in der Anweisung zu benutzen
+    $u = $_POST['user'];
+    $e = $_POST['email'];
+    $id = $_POST['hiddensite'];
+    $sql = $conn->prepare("UPDATE account SET name = '$u', `email` = '$e' 
+		WHERE accountid = $id;");
+
+    $sql->execute(array($u, $e, $id));
+    if ($sql->rowCount() > 0) {
+        //http_response_code(200);
+        echo "Benutzereigenschaften erfolgreich geändert";
+        exit();
+    } else {
+        //http_response_code(400);
+        echo "Es ist etwas schief gegangen, bitte versuchen sie es später erneut!";
+        exit();
+    }
 }
