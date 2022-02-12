@@ -30,16 +30,17 @@ function login($conn)
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
     } else {
-        $result = $sql->fetchAll();
-        if (!password_verify($p, $result["passwort"])) {
-
+        while ($row = $sql->fetchAll()) {
+            $pass = $row['passwort'];
+        }
+        if (password_verify($p, $pass)) {
             session_start();
 
             $_SESSION['user'] = $u;
-            echo "Login erfolgreich";
 
+            echo "Login erfolgreich";
             exit();
-        } else if(password_verify($p, $result["passwort"])) {
+        } else {
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
             exit();
         }
