@@ -30,6 +30,7 @@ function login($conn)
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
     } else {
+        var_dump($rowcount);
            $pass = $rowcount['passwort'];        
         }
         if (password_verify($p, $pass)) {
