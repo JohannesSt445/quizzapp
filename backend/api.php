@@ -32,6 +32,7 @@ function login($conn)
     } else {
         while ($row = $sql->fetchAll()) {
             $pass = $row['passwort'];
+           echo $row['pass'];
         }
         if (password_verify($p, $pass)) {
             session_start();
