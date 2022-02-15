@@ -3,7 +3,7 @@ var status;
 logout.addEventListener('click',()=>{
   const formData = new FormData(document.querySelector('form'))
   fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php', {
-    method: 'POST',
+    method: 'GET',
     body: formData
   })
   .then(res => {
