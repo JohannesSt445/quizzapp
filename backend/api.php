@@ -1,5 +1,8 @@
 <?php
 require "connect.php";
+if($_SERVER['REQUEST_METHOD'] == "GET" && $_REQUEST['type'] == 'passtoken'){
+    changepass($conn);
+}
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "login")
     login($conn);
@@ -15,6 +18,34 @@ if ($_SERVER['REQUEST_METHOD'] == "GET")
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "edit")
     edit($conn);
+
+
+function changepass($conn)
+{
+
+    $token = $_GET['hiddensite'];
+
+    if($_GET['pass'] == $_GET['pass2'])
+    {
+
+            $sql = "UPDATE account SET passwort =".$_GET['pass']." FROM account WHERE";
+            $conn->prepare($sql);
+            $conn -> execute();
+
+            if($conn -> rowCount() > 0)
+            {
+                echo "Passwort erfolgreich geändert!";
+            }
+            else{
+                echo "Fehler!";
+            }
+    }
+    else{
+        echo "Passwörter stimmen nicht überein!";
+
+    }
+
+}
 
 //Einloggen
 function login($conn)
@@ -109,7 +140,7 @@ function passVergessen($conn)
     //DB check username
     $sql = $conn->prepare("SELECT name, email, passwort FROM Account WHERE name = ? OR email = ?");
     $sql->execute(array($user, $email));
-    $row_count = $sql->rowCount();
+    $row_count = $sql->fetch(PDO::FETCH_ASSOC);
     if ($row_count == 0) {
         echo "Benutzername oder Email existieren nicht.";
         exit();
