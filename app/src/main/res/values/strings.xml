@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">QuizApp</string>
     <string name="quizzapp">QuizzApp</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="passwort">Passwort</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="passwort_wiederholen">Passwort wiederholen</string>
+    <string name="email_oder_username">Email oder Username</string>
+
 </resources>

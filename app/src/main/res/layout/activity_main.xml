@@ -27,7 +27,7 @@
         android:id="@+id/welcome_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
+        android:text="@string/welcome"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         android:id="@+id/register_btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -54,8 +54,9 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
-        android:hint="Email oder Username"
-        android:inputType="textPersonName"
+        android:hint="@string/email_oder_username"
+        android:inputType="textWebEmailAddress|textPersonName"
+        android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +64,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435" />
+        app:layout_constraintVertical_bias="0.435"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/passwort_et2"
@@ -71,8 +73,9 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
-        android:hint="Passwort"
+        android:hint="@string/passwort"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,13 +83,14 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_et"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.069"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/login_btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
