@@ -31,9 +31,9 @@ function login($conn)
         echo "Dieser Benutzer existiert nicht!";
     } else {
         var_dump($rowcount);
-           $pass = $rowcount['passwort'];        
+           $pass = $rowcount['PASSWORT'];        
         }
-        if (password_verify($p, $pass)) {
+        if ($p == $pass) {
             session_start();
 
             $_SESSION['user'] = $u;
