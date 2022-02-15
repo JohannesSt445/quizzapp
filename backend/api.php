@@ -40,6 +40,7 @@ function login($conn)
             echo "Login erfolgreich";
             exit();
         } else {
+            echo $pass;
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
             exit();
         }
