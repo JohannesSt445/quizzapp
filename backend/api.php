@@ -43,8 +43,8 @@ function login($conn)
             echo 'Login ist fehlerhaft! Passwort oder Username ist falsch!';
             exit();
         }
-    }
 }
+
 
 //Registrieren
 function registrieren($conn)
