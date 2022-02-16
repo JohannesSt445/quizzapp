@@ -39,7 +39,7 @@ if($_REQUEST['type'] == "frage")
     }
     elseif($_REQUEST['kategorie'] != NULL && $_REQUEST['schwierigkeit'] != NULL)
     {
-        echo "test";
+        
         echo json_encode(getFragen($conn,$_REQUEST['kategorie'],$_REQUEST['schwierigkeit']));
     }
     else{
@@ -91,6 +91,7 @@ function getFragen($conn, $kat = NULL, $schw = NULL)
     else{
         $abfrage = "SELECT fragenid, frage FROM frage WHERE kategorieid =".$kat." AND schwierigkeitsid = ".$schw;
     }
+    $sql = $conn -> query($abfrage);
     $returnArr = array();
     while($row = $sql->fetch(PDO::FETCH_ASSOC))
     {
