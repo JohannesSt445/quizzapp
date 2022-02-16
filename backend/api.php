@@ -91,7 +91,7 @@ function getStatistik($conn)
     $sql = $conn -> prepare($abfrage);
     $u = $_SESSION['user'];
     echo "test";
-    $sql -> execute([$u,$u]);
+    $sql -> execute(array($u,$u));
     echo "test2";
     $returnArr = array();
     while($row = $sql->fetch(PDO::FETCH_ASSOC))
