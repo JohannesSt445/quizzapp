@@ -13,7 +13,7 @@ startbutton.addEventListener('click' ,() => {
   buttonArray[1].disabled = false;
   buttonArray[2].disabled = false;
   buttonArray[3].disabled = false;
- 
+  startbutton.disabled = true;
 });
 
 
@@ -116,12 +116,14 @@ schwierigkeit_dropdown.onchange = function(){
   getFrage();
 }
 
-function addPunkte(){
+function addPunkte(c){
   if(c == 'R'){
+    frageText.innerHTML = "Richtig!";
     var api = fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=kategorie');
   }
 
   if(c == 'F'){
+    frageText.innerHTML = "Falsch!";
     var api = fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=kategorie');
   }
 
@@ -134,6 +136,9 @@ function addPunkte(){
   buttonArray[1].disabled = true;
   buttonArray[2].disabled = true;
   buttonArray[3].disabled = true;
+  startbutton.disabled = false;
+
+
 }
 
 
