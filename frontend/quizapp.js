@@ -1,5 +1,5 @@
 var kategorie_dropdown = document.getElementById("kategorie");
-var lvl_dropdown = document.getElementById("level");
+var schwierigkeit_dropdown = document.getElementById("level");
 var startbutton = document.getElementById("start");
 var frageText = document.getElementById("frage");
 var buttonArray = [document.getElementById("button1"),document.getElementById("button2"),document.getElementById("button3"),document.getElementById("button4")];
@@ -40,7 +40,7 @@ async function getKategorien(){
 
 
 async function getSchwierigkeit(){
-  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=kategorie');
+  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=schwierigkeit');
 
   var json_data = await api.json();
 

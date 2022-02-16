@@ -23,6 +23,12 @@ if($_REQUEST['type'] == "kategorie")
     echo json_encode(getKategorie($conn));
 }
 
+if($_REQUEST['type'] == "schwierigkeit")
+{
+    echo json_encode(getSchwierigkeit($conn));
+}
+
+
 function changepass($conn)
 {
 
@@ -53,6 +59,23 @@ function changepass($conn)
 function getKategorie($conn)
 {
     $abfrage = "SELECT kategorieid, kategoriename From kategorie ORDER BY kategorieid";
+
+    $sql = $conn ->query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
+
+
+}
+
+function getKategorie($conn)
+{
+    $abfrage = "SELECT schwierigkeitsid, name From schwierigkeitsgrad ORDER BY schwierigkeitsid";
 
     $sql = $conn ->query($abfrage);
     $returnArr = array();
