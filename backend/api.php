@@ -39,6 +39,7 @@ if($_REQUEST['type'] == "frage")
     }
     elseif($_REQUEST['kategorie'] != NULL && $_REQUEST['schwierigkeit'] != NULL)
     {
+        echo "test";
         echo json_encode(getFragen($conn,$_REQUEST['kategorie'],$_REQUEST['schwierigkeit']));
     }
     else{
