@@ -7,12 +7,12 @@ var buttonArray = [document.getElementById("button1"),document.getElementById("b
 
 startbutton.addEventListener('click' ,() => {
 
-  questionText(frageArray.array);
+  frageText(frageArray.array);
   buttonArray[0].disabled = false;
   buttonArray[1].disabled = false;
   buttonArray[2].disabled = false;
   buttonArray[3].disabled = false;
-  ansBtnText(antwortArray.array, buttonArray);
+  antwortButtonText(antwortArray.array, buttonArray);
 });
 
 
@@ -72,7 +72,7 @@ async function getFrage(){
     value: item.FRAGENID
     })
   });
-  console.log(frageArray);
+  
   getAntworten(frageArray);
 }
 
@@ -141,10 +141,9 @@ function addPunkte(){
 }
 
 
-function frageText(frage){
-  if(frage != undefined){
-    var element = frage.shift()
-    console.log(frgae)
+function frageText(fragenarray){
+  if(fragearray != undefined){
+    var element = fragearray.shift()
     frageText.innerHTML = element.key;
   }
   else{
