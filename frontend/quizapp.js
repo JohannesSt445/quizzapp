@@ -137,13 +137,13 @@ function addPunkte(){
 }
 
 
-function getfrageText(fragenarray){
+async function getfrageText(fragenarray){
   if(fragenarray != undefined){
     console.log(fragenarray);
     var element = fragenarray.shift()
-    getAntworten(element.value);
+    await getAntworten(element.value);
     frageText.innerHTML = element.key;
-    antwortButtonText(antwortArray.array, buttonArray);
+    await antwortButtonText(antwortArray.array, buttonArray);
     antwortArray.array = [];
   }
   else{
