@@ -97,9 +97,9 @@ function getStatistik($conn)
     
     $returnArr = array();
     $row = $sql->fetch(PDO::FETCH_ASSOC);
-    echo $row['name'];
+    echo $row;
     echo "test";
-    $user = $row['name'];
+    $user = $row;
 
     $abfrage = "SELECT username, punkte FROM Spieler WHERE userid = ".$user;
     $sql2 = $conn->query($abfrage);
