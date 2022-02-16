@@ -3,7 +3,7 @@ var punkte = document.getElementById("punkte");
 
 
 async function getStatistik(){
-  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/model.php?type=statistik');
+  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=statistik');
 
   var json_data = await api.json();
 
