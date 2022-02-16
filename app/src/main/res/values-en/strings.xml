@@ -8,7 +8,7 @@
     <string name="passwort">Password</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
-    <string name="passwort_wiederholen">Reenter password </string>
+    <string name="passwort_wiederholen">Re-enter password </string>
     <string name="email_oder_username">Email or Username</string>
     <string name="register_text">Already have an Account?\nRegister <u>here</u>.</string>
     <string name="login_text">Don\'t have an Account?\nLogin <u>here</u>.</string>
