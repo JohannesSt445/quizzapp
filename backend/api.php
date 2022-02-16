@@ -86,7 +86,7 @@ function getFragen($conn, $kat = NULL, $schw = NULL)
     }
     elseif($schw != NULL && $kat == NULL)
     {
-        $abfrage = "SELECT fragenid, frage FROM frage WHERE schwierigkeitsid = ".$schw;
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE schwierigkeitsid =".$schw;
     }
     else{
         $abfrage = "SELECT fragenid, frage FROM frage WHERE kategorieid = ".$kat." AND schwierigkeitsid = ".$schw;
