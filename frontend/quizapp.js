@@ -116,7 +116,7 @@ kategorie_dropdown.onchange = function(){
   getFrage();
 }
 
-lvl_dropdown.onchange = function(){
+schwierigkeit_dropdown.onchange = function(){
   getFrage();
 }
 
