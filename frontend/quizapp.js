@@ -61,7 +61,7 @@ async function getFrage(){
   var kategorie = kategorie_dropdown.value;
   var schwierigkeit = schwierigkeit_dropdown.value;
 
-  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=frage&kategorieid='+kategorie+'&schwierigkeit='+schwierigkeit);
+  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=frage&kategorie='+kategorie+'&schwierigkeit='+schwierigkeit);
 
   var json_data = await api.json();
 
