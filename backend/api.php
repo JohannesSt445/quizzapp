@@ -88,7 +88,7 @@ function getStatistik($conn)
 {
  
 
-    $sql = $conn->prepare("SELECT username, punkte FROM spieler WHERE username = ? OR email = ?");
+    $sql = $conn->prepare("SELECT username, punkte FROM Account WHERE username = ? OR email = ?");
     $u = $_SESSION['user'];
     $e = $_SESSION['user'];
     echo "test";
