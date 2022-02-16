@@ -41,7 +41,7 @@ public class Register extends AppCompatActivity {
         name = email = passwort = passwort_wdh = "";
     }
 
-    public void save(View view){
+    public void register(View view){
         name = username_et.getText().toString().trim();
         email = email_et.getText().toString().trim();
         passwort = passwort_et.getText().toString().trim();
