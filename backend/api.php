@@ -97,7 +97,7 @@ function changepass($conn)
 
 function getAntwort($conn, $fragenid)
 {
-    $sql = "SELECT antwort, richtigeantwort FROM antwort WHERE fragenid = ".$fragenid;
+    $abfrage = "SELECT antwort, richtigeantwort FROM antwort WHERE fragenid = ".$fragenid;
 
     $sql = $conn -> query($abfrage);
     $returnArr = array();
