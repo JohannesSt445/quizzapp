@@ -136,6 +136,7 @@ function addPunkte(){
 
 function getfrageText(fragenarray){
   if(fragenarray != undefined){
+    console.log(fragenarray);
     var element = fragenarray.shift()
     getAntworten(element.value);
     frageText.innerHTML = element.key;
