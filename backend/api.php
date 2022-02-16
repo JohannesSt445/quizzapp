@@ -18,7 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET")
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "edit")
     edit($conn);
-
+if($_REQUEST['type'] == "kategorie")
+{
+    echo json_encode(getKategorie($conn));
+}
 
 function changepass($conn)
 {
@@ -44,6 +47,23 @@ function changepass($conn)
         echo "Passwörter stimmen nicht überein!";
 
     }
+
+}
+
+function getKategorie($conn)
+{
+    $abfrage = "SELECT kategorieid, kategoriename From kategorie ORDER BY kategorieid";
+
+    $sql = $conn ->query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
+
 
 }
 
