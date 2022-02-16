@@ -100,7 +100,7 @@ function getStatistik($conn)
 
     $user = $row["NAME"];
     
-    
+    echo $user;
 
 
     $abfrage = "SELECT username, punkte FROM Spieler WHERE userid = ".$user;
