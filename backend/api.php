@@ -87,8 +87,8 @@ if($_REQUEST['type'] == "statistik")
 function getStatistik($conn)
 {
  
-    $abfrage = "SELECT username, punkte FROM spieler WHERE username = ? OR email = ?";
-    $sql = $conn -> prepare($abfrage);
+
+    $sql = $conn -> prepare("SELECT username, punkte FROM spieler WHERE username = ? OR email = ?");
     $u = $_SESSION['user'];
     echo "test";
     $sql -> execute(array($u,$u));
