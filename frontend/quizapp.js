@@ -32,7 +32,7 @@ async function getKategorien(){
   json_data.forEach((item,idx) =>
   {
     var option = document.createElement("option");
-    option.text = item.KATEGORIE;
+    option.text = item.KATEGORIENAME;
     option.value = item.KATEGORIEID;
     kategorie_dropdown.appendChild(option);
   });
