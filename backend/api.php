@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "registriere
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
     passVergessen($conn);
 
-if ($_SERVER['REQUEST_METHOD'] == "GET")
+if ($_SERVER['REQUEST_METHOD'] == "GET" && $_REQUEST['type'] == "logout")
     logout($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "edit")
@@ -199,7 +199,7 @@ function logout($conn)
     //unset($_SESSION);
     session_destroy();
     echo "Erfolgreich ausgeloggt";
-    header('Location: index.html');
+    header('Location: ./frontend/index.html');
 }
 
 function edit($conn)
