@@ -27,6 +27,26 @@ if($_REQUEST['type'] == "schwierigkeit")
 {
     echo json_encode(getSchwierigkeit($conn));
 }
+if($_REQUEST['type'] == "frage")
+{
+    if($_REQUEST['kategorie'] != NULL && $_REQUEST['schwierigkeit'] == NULL)
+    {
+        echo json_encode(getFragen($conn,$_REQUEST['kategorie']));
+    }
+    elseif($_REQUEST['schwierigkeit'] != NULL && $_REQUEST['kategorie'] == NULL)
+    {
+        echo json_encode(getFragen($conn,$_REQUEST['schwierigkeit']));
+    }
+    elseif($_REQUEST['kategorie'] != NULL && $_REQUEST['schwierigkeit'] != NULL)
+    {
+        echo json_encode(getFragen($conn,$_REQUEST['kategorie'],$_REQUEST['schwierigkeit']));
+    }
+    else{
+        http_response_code(400);
+        echo "Bitte entweder Kategorie oder Schwierigkeit auswählen!";
+        exit();
+    }
+}
 
 
 function changepass($conn)
@@ -53,6 +73,31 @@ function changepass($conn)
         echo "Passwörter stimmen nicht überein!";
 
     }
+
+}
+
+
+function getFragen($conn, $kat = NULL, $schw = NULL)
+{
+    if($kat != NULL && $schw == NULL)
+    {
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE kategorieid = ".$kat;
+    }
+    elseif($schw != NULL && $kat == NULL)
+    {
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE schwierigkeitsid = ".$schw;
+    }
+    else{
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE kategorieid =".$kat." AND schwierigkeitsid = ".$schw;
+    }
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
 
 }
 
