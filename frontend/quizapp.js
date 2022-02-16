@@ -73,6 +73,8 @@ async function getFrage(){
     value: item.FRAGENID
     })
   });
+
+  console.log(frageArray.array)
   
  
 }
