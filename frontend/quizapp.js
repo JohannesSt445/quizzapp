@@ -3,7 +3,8 @@ var schwierigkeit_dropdown = document.getElementById("level");
 var startbutton = document.getElementById("start");
 var frageText = document.getElementById("frageText");
 var buttonArray = [document.getElementById("button1"),document.getElementById("button2"),document.getElementById("button3"),document.getElementById("button4")];
-
+var punkte = document.getElementById("punkte");
+var user = document.getElementById("user");
 
 startbutton.addEventListener('click' ,() => {
 
@@ -95,14 +96,13 @@ async function getAntworten(fragenid){
 
 
 async function getStatistik(){
-  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=kategorie');
+  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=statistik');
   json_data = await api.json();
 
   json_data.forEach((item) =>
   {
     user.innerHTML = item.USERNAME;
-    richtig.innerHTML = item.RICHTIGEANTWORT;
-    falsch.innerHTML = item.FLASCHEANTWORT;
+    punkte.innerHTML = item.PUNKTE;
   });
 
 }

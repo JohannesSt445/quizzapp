@@ -1,5 +1,7 @@
 <?php
 require "connect.php";
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == "GET" && $_REQUEST['type'] == 'passtoken'){
     changepass($conn);
 }
@@ -65,7 +67,36 @@ if($_REQUEST['type'] == "antwort")
     }
 }
 
+if($_REQUEST['type'] == "statistik")
+{   
+    if(isset($_SESSION['user']))
+    {
+        echo json_encode(getStatistik($conn));
+        exit();
+    }
+    elseif(!isset($_SESSION['user']))
+    {
+        http_response_code(400);
+        echo "Sie sind nicht eingeloggt!";
+        exit();
+    }
+    
+}
 
+
+function getStatistik($conn)
+{
+    $abfrage = "SELECT username, punkte FROM spieler WHERE username = ".$_SESSION['user']." OR email = ".$_SESSION['user'];
+    $sql = $conn -> query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
+}
 
 function changepass($conn)
 {
