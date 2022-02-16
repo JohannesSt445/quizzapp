@@ -76,6 +76,7 @@ async function getFrage(){
 
   console.log(frageArray.array)
   console.log(kategorie)
+  console.log(schwierigkeit)
   
  
 }
