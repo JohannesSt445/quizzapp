@@ -97,9 +97,8 @@ function getStatistik($conn)
     
     $returnArr = array();
     $row = $sql->fetch(PDO::FETCH_ASSOC);
-    print_r($row);
 
-    $user = $row["name"];
+    $user = $row["NAME"];
     
     
 
