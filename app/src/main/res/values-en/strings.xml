@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="quizzapp">QuizzApp</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="passwort">Password</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="passwort_wiederholen">Reenter password </string>
+    <string name="email_oder_username">Email or Username</string>
+    <string name="register_text">Already have an Account?\nRegister <u>here</u>.</string>
+    <string name="login_text">Don\'t have an Account?\nLogin <u>here</u>.</string>
+</resources>
