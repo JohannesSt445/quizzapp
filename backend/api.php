@@ -291,7 +291,7 @@ function registrieren($conn)
     if ($sql->rowCount() > 0) {
         //http_response_code(200);
 
-        $sql = $conn->prapare("INSERT INTO Spieler(userid,spielid,tabellenid,username,punkte,inwarteschlange,isteingeloggt,spieleanzahl,imspiel) VALUES(?, '', '', ?, 0, 0, 0, 0, 0)");
+        $sql = $conn->prepare("INSERT INTO Spieler(userid,spielid,tabellenid,username,punkte,inwarteschlange,isteingeloggt,spieleanzahl,imspiel) VALUES(?, '', '', ?, 0, 0, 0, 0, 0)");
         $sql->execute(array($counter, $user));
 
 
