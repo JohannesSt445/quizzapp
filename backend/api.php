@@ -88,8 +88,8 @@ function getStatistik($conn)
 {
  
     $abfrage = "SELECT username, punkte FROM spieler WHERE username = ".$_SESSION['user']." OR email = ".$_SESSION['user'];
-    $sql = $conn -> query($abfrage);
-    echo $_SESSION['user'];
+    $sql = $conn -> prepare($abfrage);
+    $sql -> execute();
     $returnArr = array();
     while($row = $sql->fetch(PDO::FETCH_ASSOC))
     {
