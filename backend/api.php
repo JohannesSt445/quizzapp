@@ -88,7 +88,7 @@ function getStatistik($conn)
 {
  
 
-    $sql = $conn->prepare("SELECT name, accountid FROM Account WHERE name = ? OR email = ?");
+    $sql = $conn->prepare("SELECT name FROM Account WHERE name = ? OR email = ?");
     $sql->execute([$u, $e]);
     $u = $_SESSION['user'];
     $e = $_SESSION['user'];
@@ -97,7 +97,7 @@ function getStatistik($conn)
     
     $returnArr = array();
     $row = $sql->fetch(PDO::FETCH_ASSOC);
-
+    print_r($row);
 
     $user = $row["name"];
     
