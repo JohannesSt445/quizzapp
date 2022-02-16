@@ -13,8 +13,7 @@ startbutton.addEventListener('click' ,() => {
   buttonArray[1].disabled = false;
   buttonArray[2].disabled = false;
   buttonArray[3].disabled = false;
-  antwortButtonText(antwortArray.array, buttonArray);
-  antwortArray.array = [];
+ 
 });
 
 
@@ -140,6 +139,8 @@ function getfrageText(fragenarray){
     var element = fragenarray.shift()
     getAntworten(element.value);
     frageText.innerHTML = element.key;
+    antwortButtonText(antwortArray.array, buttonArray);
+    antwortArray.array = [];
   }
   else{
     frageText.innerHTML = "Done!";
