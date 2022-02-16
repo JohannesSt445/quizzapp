@@ -29,15 +29,15 @@ if($_REQUEST['type'] == "schwierigkeit")
 }
 if($_REQUEST['type'] == "frage")
 {
-    if($_REQUEST['kategorie'] != NULL && $_REQUEST['schwierigkeit'] == NULL)
+    if(isset($_REQUEST['kategorie']) && !isset($_REQUEST['schwierigkeit']))
     {
         echo json_encode(getFragen($conn,$_REQUEST['kategorie']));
     }
-    elseif($_REQUEST['schwierigkeit'] != NULL && $_REQUEST['kategorie'] == NULL)
+    elseif(isset($_REQUEST['schwierigkeit']) && !isset($_REQUEST['kategorie']))
     {
         echo json_encode(getFragen($conn,$_REQUEST['schwierigkeit']));
     }
-    elseif($_REQUEST['kategorie'] != NULL && $_REQUEST['schwierigkeit'] != NULL)
+    elseif(isset($_REQUEST['kategorie']) && isset($_REQUEST['schwierigkeit']))
     {
         
         echo json_encode(getFragen($conn,$_REQUEST['kategorie'],$_REQUEST['schwierigkeit']));
