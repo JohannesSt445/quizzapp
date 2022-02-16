@@ -73,7 +73,7 @@ function getKategorie($conn)
 
 }
 
-function getKategorie($conn)
+function getSchwierigkeit($conn)
 {
     $abfrage = "SELECT schwierigkeitsid, name From schwierigkeitsgrad ORDER BY schwierigkeitsid";
 
