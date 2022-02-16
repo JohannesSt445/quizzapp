@@ -1,5 +1,5 @@
 var kategorie_dropdown = document.getElementById("kategorie");
-var schwierigkeit_dropdown = document.getElementById("  ");
+var schwierigkeit_dropdown = document.getElementById("level");
 var startbutton = document.getElementById("start");
 var frageText = document.getElementById("frage");
 var buttonArray = [document.getElementById("button1"),document.getElementById("button2"),document.getElementById("button3"),document.getElementById("button4")];
