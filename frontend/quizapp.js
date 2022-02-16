@@ -67,7 +67,7 @@ async function getFrage(){
   
   json_data.forEach((item,idx) =>
   {
-    fragenarray.array.push({
+    frageArray.array.push({
     key: item.FRAGE,
     value: item.FRAGENID
     })
