@@ -142,7 +142,7 @@ function addPunkte(){
 
 
 function getfrageText(fragenarray){
-  if(fragearray != undefined){
+  if(fragenarray != undefined){
     var element = fragearray.shift()
     frageText.innerHTML = element.key;
   }
