@@ -86,6 +86,7 @@ if($_REQUEST['type'] == "statistik")
 
 function getStatistik($conn)
 {
+    echo $_SESSION['user'];
     $abfrage = "SELECT username, punkte FROM spieler WHERE username = ".$_SESSION['user']." OR email = ".$_SESSION['user'];
     $sql = $conn -> query($abfrage);
     $returnArr = array();
