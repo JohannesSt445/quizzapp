@@ -88,18 +88,24 @@ function getStatistik($conn)
 {
  
 
-    $sql = $conn->prepare("SELECT username, punkte FROM Account WHERE username = ? OR email = ?");
+    $sql = $conn->prepare("SELECT name FROM Account WHERE name = ? OR email = ?");
+    $sql->execute([$u, $e]);
     $u = $_SESSION['user'];
     $e = $_SESSION['user'];
-    echo "test";
+    
     $sql->execute([$u,$e]);
-    echo "test2";
+    
     $returnArr = array();
-    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    $row = $sql->fetch(PDO::FETCH_ASSOC);
+    $user = $row['name'];
+
+    $abfrage = "SELECT username, punkte FROM Spieler WHERE userid = ".$user;
+    $sql2 = $conn->query($abfrage);
+    while($row = $sql2->fetch(PDO::FETCH_ASSOC))
     {
         array_push($returnArr,$row);
     }
-
+   
     return $returnArr;
 
 }
@@ -216,6 +222,7 @@ function login($conn)
     //oracle check ob Account existiert
     $sql = $conn->prepare("SELECT name, passwort, email FROM account WHERE name = ? OR email = ?");
     $sql->execute([$u, $e]);
+  
     $rowcount = $sql->fetch(PDO::FETCH_ASSOC);
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
@@ -283,6 +290,14 @@ function registrieren($conn)
     $sql->execute(array($counter, $user, $pass, $email));
     if ($sql->rowCount() > 0) {
         //http_response_code(200);
+
+        $sql = $conn_>prapare("INSERT INTO Spieler(userid,spielid,tabellenid,username,punkte,inwarteschlange,isteingeloggt,spieleanzahl,imspiel) VALUES(?, '', '', ?, 0, 0, 0, 0, 0)");
+        $sql->execute(array($counter, $user));
+
+
+
+
+
         echo "Registriert!";
         exit();
     } else {
@@ -290,6 +305,7 @@ function registrieren($conn)
         echo "Registrierung fehlgeschlagen!";
         exit();
     }
+
 }
 
 function passVergessen($conn)
