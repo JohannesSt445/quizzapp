@@ -7,7 +7,7 @@ var buttonArray = [document.getElementById("button1"),document.getElementById("b
 
 startbutton.addEventListener('click' ,() => {
 
-  frageText(frageArray.array);
+  getfrageText(frageArray.array);
   buttonArray[0].disabled = false;
   buttonArray[1].disabled = false;
   buttonArray[2].disabled = false;
@@ -141,7 +141,7 @@ function addPunkte(){
 }
 
 
-function frageText(fragenarray){
+function getfrageText(fragenarray){
   if(fragearray != undefined){
     var element = fragearray.shift()
     frageText.innerHTML = element.key;
@@ -173,6 +173,7 @@ function antwortButtonText(antworten, buttonArray){
   });
 }
 }
+
 
 getKategorien();
 getSchwierigkeit();
