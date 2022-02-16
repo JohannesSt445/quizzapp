@@ -49,6 +49,23 @@ if($_REQUEST['type'] == "frage")
     }
 }
 
+if($_REQUEST['type'] == "antwort")
+{
+    if(isset($_REQUEST['fragenid']))
+    {
+        
+        http_response_code(200);
+        echo json_encode(getAntwort($conn,$_REQUEST['fragenid']));
+        exit();
+    }
+    else{
+        http_response_code(400);
+        echo "Bitte FragenID eintragen!";
+        exit();
+    }
+}
+
+
 
 function changepass($conn)
 {
@@ -77,6 +94,20 @@ function changepass($conn)
 
 }
 
+
+function getAntwort($conn, $fragenid)
+{
+    $sql = "SELECT antwort, richtigeantwort FROM antwort WHERE fragenid = ".$fragenid;
+
+    $sql = $conn -> query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+}
 
 function getFragen($conn, $kat = NULL, $schw = NULL)
 {

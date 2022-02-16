@@ -8,11 +8,13 @@ var buttonArray = [document.getElementById("button1"),document.getElementById("b
 startbutton.addEventListener('click' ,() => {
 
   getfrageText(frageArray.array);
+  
   buttonArray[0].disabled = false;
   buttonArray[1].disabled = false;
   buttonArray[2].disabled = false;
   buttonArray[3].disabled = false;
   antwortButtonText(antwortArray.array, buttonArray);
+  antwortArray.array = [];
 });
 
 
@@ -73,28 +75,19 @@ async function getFrage(){
     })
   });
   
-  getAntworten(frageArray);
+ 
 }
 
 
-async function getAntworten(fragen){
-  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=kategorie',{
-
-  method: 'POST',
-  headers: {"Content-Type": "application/json",
-    'type' : 'antworten'},
-  body: JSON.stringify(fragen)
-
-}).catch(err => { alert(err)
-});
-
-var json_data = await resizeBy.json();
-console.log(json_data);
-json_data.forEach((item,idx) =>
-{
-  antwortArray.array.push(item)
-});
-  console.log(antwortArray);
+async function getAntworten(fragenid){
+  var api = await fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=antwort&fragenid='+fragenid);
+  var json_data = await api.json();
+  console.log(json_data);
+  json_data.forEach((item,idx) =>
+  {
+    antwortArray.array.push(item)
+  });
+    console.log(antwortArray);
 }
 
 
@@ -144,6 +137,7 @@ function addPunkte(){
 function getfrageText(fragenarray){
   if(fragenarray != undefined){
     var element = fragenarray.shift()
+    getAntworten(element.value);
     frageText.innerHTML = element.key;
   }
   else{
@@ -154,9 +148,9 @@ function getfrageText(fragenarray){
 
 function antwortButtonText(antworten, buttonArray){
   if(antworten != undefined){
-      var ele = antwort.shift()
+
       var counter = 0;
-      ele.forEach((item) =>
+      antworten.forEach((item) =>
       {
         buttonArray[counter].value = item.ANTWORT;
         if(item.RICHTIGEANTWORT == 1){
@@ -171,6 +165,7 @@ function antwortButtonText(antworten, buttonArray){
       }
       counter++;
   });
+  
 }
 }
 
