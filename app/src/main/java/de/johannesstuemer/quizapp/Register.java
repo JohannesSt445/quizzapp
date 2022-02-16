@@ -1,13 +1,15 @@
 package de.johannesstuemer.quizapp;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,47 +22,55 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
-
-    private EditText email_et, passwort_et;
-    private String email, passwort;
+public class Register extends AppCompatActivity {
+    private EditText username_et, email_et, passwort_et, passwort_wdh_et;
+    private TextView status_tv;
+    private Button register_btn;
     private String URL = "http://quizzapp.chickenkiller.com/quizzapp/backend/api.php";
-
+    private String name, email, passwort, passwort_wdh;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        email = passwort = "";
+        setContentView(R.layout.activity_register);
+        username_et = findViewById(R.id.User_et2);
         email_et = findViewById(R.id.email_et2);
         passwort_et = findViewById(R.id.passwort_et2);
+        passwort_wdh_et = findViewById(R.id.passwortwdh_et);
+        status_tv = findViewById(R.id.status_tv);
+        register_btn = findViewById(R.id.register_btn);
+        name = email = passwort = passwort_wdh = "";
     }
 
-    public void login(View view){
+    public void register(View view){
+        name = username_et.getText().toString().trim();
         email = email_et.getText().toString().trim();
         passwort = passwort_et.getText().toString().trim();
-        if(!email.equals("") && !passwort.equals("")){
+        passwort_wdh = passwort_wdh_et.getText().toString().trim();
+        if(!passwort.equals(passwort_wdh)){
+            Toast.makeText(this, "Passwörter stimmen nicht überein", Toast.LENGTH_LONG).show();
+        }
+        else if(!name.equals("") && !email.equals("") && !passwort.equals("")){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    if (response.equals("Login erfolgreich")) {
-                        Intent intent = new Intent(MainActivity.this, Erfolg.class);
-                        startActivity(intent);
-                        finish();
-                    } else if (response.equals("Login ist fehlerhaft! Passwort oder Username ist falsch!") || response.equals("Dieser Benutzer existiert nicht!")) {
-                        Toast.makeText(MainActivity.this, "Ungültiger Login Id/Passwort", Toast.LENGTH_LONG).show();
+                    if (response.equals("Registriert!")) {
+                        status_tv.setText("Erfolgreich registriert");
+                        register_btn.setClickable(false);
+                    } else if (response.equals("Registrierung fehlgeschlagen!") || response.equals("Benutzername oder E-Mail existieren bereits")) {
+                        status_tv.setText("Etwas ist schief gelaufen!");
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(MainActivity.this, error.toString().trim(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), error.toString().trim(), Toast.LENGTH_LONG).show();
                 }
             }){
                 @Nullable
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> data = new HashMap<>();
+                    data.put("name", name);
                     data.put("email", email);
                     data.put("passwort", passwort);
                     return data;
@@ -69,13 +79,10 @@ public class MainActivity extends AppCompatActivity {
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }
-        else{
-            Toast.makeText(this, "Felder müssen ausgefüllt werden!", Toast.LENGTH_LONG).show();
-        }
     }
 
-    public void register(View view){
-        Intent intent = new Intent(this, Register.class);
+    public void login(View view){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
