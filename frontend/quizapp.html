@@ -28,32 +28,24 @@
   <h1> Quizapp <h1> </br>
       <form onsubmit="return false;">
         </br>
-        <div>
-        <label for="Kategorie">Wähle eine Kategorie:</label>
-        </div>
-
-        <div>
-        <select id="Kategorie" name="Kategorie">
-        <option value="Betriebssysteme">Betriebssysteme</option>
-        <option value="Php">Php</option>
-        <option value="C#">C#</option>
-        <option value="Allgemeines">Allgemeines</option>
-        <option value="DBD">DBD</option>
-        </select>
-        </div>
+        <div><h3 id="user"></h3><div>
+          <div><h3>Richtig: </h3><h3 id="richtig"></h3><div>
+              <div><h3>Falsch: </h3><h3 id="falsch"></h3><div>
        
         <div>
-        <label for="Johannes ist dumm">Wieso ist die Erde rund?</label>
+        <label id="frage">Frage:</label>
         </div>
 
-        <div>
-          <button class="A">A</button>
-          <button class="B">B</button>
-          <button class="C">C</button>
-          <button class="D">D</button>
-        </div>
+        <div><select name="Kategorie" id="Kategorie"></select></div>
+      <div><select name="Level" id="level"></select></div>
+      <div><input type="submit" value="Start" id="start"></div>
+      <div><input type="submit" value="A" id="btn1"></div>
+      <div><input type="submit" value="B" id="btn2"></div>
+      <div><input type="submit" value="C" id="btn3"></div>
+      <div><input type="submit" value="D" id="btn4"></div>
+          <div><input type="hidden" name="hiddensite" value="question"></div>
 
-        <!--<h4><a href="passwortaendern.html">-->
+        
            
       </form>
       <script src="quizapp.js" defer></script>
