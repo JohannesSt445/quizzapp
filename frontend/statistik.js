@@ -1,10 +1,9 @@
 var user = document.getElementById("user");
-var richtig = document.getElementById("richtig");
-var falsch = document.getElementById("falsch");
+var punkte = document.getElementById("punkte");
 
 
 async function getStatistik(){
-  var api = await fetch('https://quizzapp.crabdance.com/backend/model.php?type=stats');
+  var api = await fetch('https://quizzapp.crabdance.com/backend/model.php?type=statistik');
 
   var json_data = await api.json();
 
@@ -16,8 +15,8 @@ async function getStatistik(){
   {
 
     user.innerHTML = item.USERNAME;
-    richtig.innerHTML = item.RICHTIGEANTWORT;
-    falsch.innerHTML = item.FALSCHEANTWORT;
+    punkte.innerHTML = item.PUNKTE;
+    
   });
 
 
