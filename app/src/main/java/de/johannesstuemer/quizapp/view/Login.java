@@ -1,8 +1,10 @@
-package de.johannesstuemer.quizapp;
+package de.johannesstuemer.quizapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import de.johannesstuemer.quizapp.R;
 
 public class Login extends AppCompatActivity {
 
