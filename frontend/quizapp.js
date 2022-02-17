@@ -119,7 +119,6 @@ schwierigkeit_dropdown.onchange = function(){
 function addPunkte(c){
   if(c == 'R'){
     frageText.innerHTML = "Richtig!";
-    item.PUNKTE++;
     var api = fetch('http://quizzapp.chickenkiller.com/quizzapp/backend/api.php?type=kategorie');
   }
 
