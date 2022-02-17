@@ -14,6 +14,7 @@
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/username"
+        android:drawableEnd="@drawable/ic_username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/white"
@@ -55,9 +56,10 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <Button
-        android:id="@+id/register_btn2"
+        android:id="@+id/register_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="register"
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +69,7 @@
         app:layout_constraintVertical_bias="0.862" />
 
     <EditText
-        android:id="@+id/email_et"
+        android:id="@+id/email_et2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
@@ -77,6 +79,7 @@
         android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:drawableEnd="@drawable/ic_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.477"
@@ -95,11 +98,12 @@
         android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:drawableEnd="@drawable/ic_lock"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_et"
+        app:layout_constraintTop_toBottomOf="@+id/email_et2"
         app:layout_constraintVertical_bias="0.175"
         android:importantForAutofill="no" />
 
@@ -114,24 +118,42 @@
         android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:drawableEnd="@drawable/ic_lock"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_et"
+        app:layout_constraintTop_toBottomOf="@+id/email_et2"
         app:layout_constraintVertical_bias="0.341"
         android:importantForAutofill="no" />
 
-    <Button
-        android:id="@+id/login_btn2"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/login_tv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:layout_gravity="center_horizontal"
+        android:minHeight="48dp"
+        android:onClick="login"
+        android:text="@string/login_text"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_btn"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.769" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
