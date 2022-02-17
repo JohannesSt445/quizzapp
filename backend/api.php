@@ -1,5 +1,7 @@
 <?php
 require "connect.php";
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == "GET" && $_REQUEST['type'] == 'passtoken'){
     changepass($conn);
 }
@@ -13,12 +15,106 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "registriere
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "forgot")
     passVergessen($conn);
 
-if ($_SERVER['REQUEST_METHOD'] == "GET")
+if ($_SERVER['REQUEST_METHOD'] == "GET" && $_REQUEST['type'] == "logout")
     logout($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['hiddensite'] == "edit")
     edit($conn);
+if($_REQUEST['type'] == "kategorie")
+{
+    echo json_encode(getKategorie($conn));
+}
 
+if($_REQUEST['type'] == "schwierigkeit")
+{
+    echo json_encode(getSchwierigkeit($conn));
+}
+if($_REQUEST['type'] == "frage")
+{
+    if(isset($_REQUEST['kategorie']) && !isset($_REQUEST['schwierigkeit']))
+    {
+        echo json_encode(getFragen($conn,$_REQUEST['kategorie']));
+    }
+    elseif(isset($_REQUEST['schwierigkeit']) && !isset($_REQUEST['kategorie']))
+    {
+        echo json_encode(getFragen($conn,$_REQUEST['schwierigkeit']));
+    }
+    elseif(isset($_REQUEST['kategorie']) && isset($_REQUEST['schwierigkeit']))
+    {
+        
+        echo json_encode(getFragen($conn,$_REQUEST['kategorie'],$_REQUEST['schwierigkeit']));
+    }
+    else{
+        http_response_code(400);
+        echo "Bitte entweder Kategorie oder Schwierigkeit auswählen!";
+        exit();
+    }
+}
+
+if($_REQUEST['type'] == "antwort")
+{
+    if(isset($_REQUEST['fragenid']))
+    {
+        
+        http_response_code(200);
+        echo json_encode(getAntwort($conn,$_REQUEST['fragenid']));
+        exit();
+    }
+    else{
+        http_response_code(400);
+        echo "Bitte FragenID eintragen!";
+        exit();
+    }
+}
+
+if($_REQUEST['type'] == "statistik")
+{   
+    if(isset($_SESSION['user']))
+    {
+        echo json_encode(getStatistik($conn));
+        exit();
+    }
+    elseif(!isset($_SESSION['user']))
+    {
+        http_response_code(400);
+        echo "Sie sind nicht eingeloggt!";
+        exit();
+    }
+    
+}
+
+
+function getStatistik($conn)
+{
+ 
+
+    $sql = $conn->prepare("SELECT name FROM Account WHERE name = ? OR email = ?");
+    
+    $u = $_SESSION['user'];
+    $e = $_SESSION['email'];
+    
+    $sql->execute([$u,$e]);
+    
+    $returnArr = array();
+    $row = $sql->fetch(PDO::FETCH_ASSOC);
+
+    $user = $row["NAME"];
+    
+    
+
+    
+    $sql2 = $conn->prepare("SELECT username, punkte FROM Spieler WHERE username = :us");
+    $sql2 -> bindValue(":us", $user);
+    $sql2 -> execute();
+
+    while($row2 = $sql2->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row2);
+    }
+   
+    return $returnArr;
+
+}
 
 function changepass($conn)
 {
@@ -47,6 +143,81 @@ function changepass($conn)
 
 }
 
+
+function getAntwort($conn, $fragenid)
+{
+    $abfrage = "SELECT antwort, richtigeantwort FROM antwort WHERE fragenid = ".$fragenid;
+
+    $sql = $conn -> query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+}
+
+function getFragen($conn, $kat = NULL, $schw = NULL)
+{
+    if($kat != NULL && $schw == NULL)
+    {
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE kategorieid = ".$kat;
+    }
+    elseif($schw != NULL && $kat == NULL)
+    {
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE schwierigkeitsid =".$schw;
+    }
+    else{
+    
+        $abfrage = "SELECT fragenid, frage FROM frage WHERE kategorieid = ".$kat." AND schwierigkeitsid = ".$schw;
+    }
+    $sql = $conn -> query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
+
+}
+
+function getKategorie($conn)
+{
+    $abfrage = "SELECT kategorieid, kategoriename From kategorie ORDER BY kategorieid";
+
+    $sql = $conn ->query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
+
+
+}
+
+function getSchwierigkeit($conn)
+{
+    $abfrage = "SELECT schwierigkeitsid, name From schwierigkeitsgrad ORDER BY schwierigkeitsid";
+
+    $sql = $conn ->query($abfrage);
+    $returnArr = array();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC))
+    {
+        array_push($returnArr,$row);
+    }
+
+    return $returnArr;
+
+
+
+}
+
 //Einloggen
 function login($conn)
 {
@@ -57,6 +228,7 @@ function login($conn)
     //oracle check ob Account existiert
     $sql = $conn->prepare("SELECT name, passwort, email FROM account WHERE name = ? OR email = ?");
     $sql->execute([$u, $e]);
+  
     $rowcount = $sql->fetch(PDO::FETCH_ASSOC);
     if ($rowcount == 0) {
         echo "Dieser Benutzer existiert nicht!";
@@ -124,6 +296,14 @@ function registrieren($conn)
     $sql->execute(array($counter, $user, $pass, $email));
     if ($sql->rowCount() > 0) {
         //http_response_code(200);
+
+        $sql = $conn->prepare("INSERT INTO Spieler(userid,spielid,accountid,tabellenid,username,punkte,inwarteschlange,isteingeloggt,spieleanzahl,imspiel) VALUES(?, '', ?, '', ?, 0, 0, 0, 0, 0)");
+        $sql->execute(array($counter,$counter, $user));
+
+
+
+
+
         echo "Registriert!";
         exit();
     } else {
@@ -131,6 +311,7 @@ function registrieren($conn)
         echo "Registrierung fehlgeschlagen!";
         exit();
     }
+
 }
 
 function passVergessen($conn)
@@ -179,7 +360,7 @@ function logout($conn)
     //unset($_SESSION);
     session_destroy();
     echo "Erfolgreich ausgeloggt";
-    header('Location: index.html');
+    header('Location: ./frontend/index.html');
 }
 
 function edit($conn)
@@ -211,3 +392,4 @@ function edit($conn)
         exit();
     }
 }
+?>
