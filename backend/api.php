@@ -91,7 +91,7 @@ function getStatistik($conn)
     $sql = $conn->prepare("SELECT name FROM Account WHERE name = ? OR email = ?");
     
     $u = $_SESSION['user'];
-    $e = $_SESSION['user'];
+    $e = $_SESSION['email'];
     
     $sql->execute([$u,$e]);
     
