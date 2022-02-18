@@ -14,6 +14,12 @@
         android:theme="@style/Theme.QuizApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Kategorie"
+            android:exported="false" />
+        <activity
+            android:name=".Schwierigkeit"
+            android:exported="false" />
+        <activity
             android:name=".startseite"
             android:exported="false" />
         <activity

@@ -16,5 +16,16 @@
     <string name="schwierigkeitsliste">Schwierigkeitsliste</string>
     <string name="fragenkategorie">Fragenkategorie</string>
     <string name="spiel_starten">Spiel starten</string>
+    <string name="schwierikeitsliste">Schwierikeitsliste</string>
+    <string name="waehle_einen_schwierigkeitsgrad">Wähle einen Schwierigkeitsgrad</string>
+    <string name="schwer">schwer</string>
+    <string name="mittel">mittel</string>
+    <string name="leicht">leicht</string>
+    <string name="waehle_eine_kategorie">Wähle eine Kategorie</string>
+    <string name="betriebssysteme">Betriebssysteme</string>
+    <string name="datenbanken">Datenbanken</string>
+    <string name="php">PHP</string>
+    <string name="c">C#</string>
+    <string name="allgemeines">Allgemeines</string>
 
 </resources>

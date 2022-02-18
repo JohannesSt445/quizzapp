@@ -17,4 +17,15 @@
     <string name="schwierigkeitsliste">Difficulty</string>
     <string name="fragenkategorie">Category</string>
     <string name="spiel_starten">Play</string>
+    <string name="schwierikeitsliste">Difficulty</string>
+    <string name="waehle_einen_schwierigkeitsgrad">Choose a difficulty</string>
+    <string name="schwer">hard</string>
+    <string name="mittel">medium</string>
+    <string name="leicht">easy</string>
+    <string name="waehle_eine_kategorie">Choose a category</string>
+    <string name="betriebssysteme">Operating systems</string>
+    <string name="datenbanken">Databases</string>
+    <string name="php">PHP</string>
+    <string name="c">C#</string>
+    <string name="allgemeines">General IT</string>
 </resources>
