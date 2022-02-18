@@ -11,5 +11,10 @@
     <string name="email_oder_username">Email oder Benutzername</string>
     <string name="register_text">Du hast bereits einen Account?\nRegistriere dich <u>hier</u>.</string>
     <string name="login_text">Du hast noch keinen Account?\nLogin <u>hier</u>.</string>
+    <string name="duellkoenig_tabelle">Duellkönig Tabelle</string>
+    <string name="spielmodus">Spielmodus</string>
+    <string name="schwierigkeitsliste">Schwierigkeitsliste</string>
+    <string name="fragenkategorie">Fragenkategorie</string>
+    <string name="spiel_starten">Spiel starten</string>
 
 </resources>

@@ -12,4 +12,9 @@
     <string name="email_oder_username">Email or Username</string>
     <string name="register_text">Already have an Account?\nRegister <u>here</u>.</string>
     <string name="login_text">Don\'t have an Account?\nLogin <u>here</u>.</string>
+    <string name="duellkoenig_tabelle">Duelking Table</string>
+    <string name="spielmodus">Gamemode</string>
+    <string name="schwierigkeitsliste">Difficulty</string>
+    <string name="fragenkategorie">Category</string>
+    <string name="spiel_starten">Play</string>
 </resources>

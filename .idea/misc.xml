@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/stud/AndroidStudioProjects/Quizzap-Projekt/quizzapp/app/src/main/res/drawable/ic_user.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/stud/AndroidStudioProjects/Quizzap-Projekt/quizzapp/app/src/main/res/drawable/ic_username.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/stud/AndroidStudioProjects/Quizzap-Projekt/quizzapp/app/src/main/res/layout/activity_startseite.xml" value="0.25" />
         <entry key="..\:/Users/stud/AndroidStudioProjects/Quizzap-Projekt/quizzapp/app/src/main/res/layout/erflog.xml" value="0.25" />
+        <entry key="..\:/Users/stud/AndroidStudioProjects/Quizzap-Projekt/quizzapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/stud/OneDrive - bib &amp; FHDW/Dokumente/GitHub/quizzapp/app/src/main/res/layout/activity_login.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/stud/OneDrive - bib &amp; FHDW/Dokumente/GitHub/quizzapp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/stud/OneDrive - bib &amp; FHDW/Dokumente/GitHub/quizzapp/app/src/main/res/layout/activity_register.xml" value="0.25" />
