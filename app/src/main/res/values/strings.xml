@@ -27,5 +27,8 @@
     <string name="php">PHP</string>
     <string name="c">C#</string>
     <string name="allgemeines">Allgemeines</string>
+    <string name="weiter">Weiter</string>
+    <string name="zurueck">Zurück</string>
+
 
 </resources>

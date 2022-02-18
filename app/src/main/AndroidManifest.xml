@@ -14,6 +14,12 @@
         android:theme="@style/Theme.QuizApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Spiel"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Kategorie"
             android:exported="false" />
         <activity
@@ -26,7 +32,7 @@
             android:name=".view.Login"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

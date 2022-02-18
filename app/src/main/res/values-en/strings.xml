@@ -28,4 +28,6 @@
     <string name="php">PHP</string>
     <string name="c">C#</string>
     <string name="allgemeines">General IT</string>
+    <string name="weiter">Continue</string>
+    <string name="zurueck">Back</string>
 </resources>
