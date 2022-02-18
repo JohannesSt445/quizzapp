@@ -9,7 +9,7 @@
     tools:context=".Spiel">
 
     <TextView
-        android:id="@+id/frage_tv"
+        android:id="@+id/duelltabelle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.513" />
 
     <Button
-        android:id="@+id/antwortB_btn"
+        android:id="@+id/Duell_btn"
         android:layout_width="190dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"

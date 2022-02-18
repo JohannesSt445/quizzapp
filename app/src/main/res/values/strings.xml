@@ -29,6 +29,9 @@
     <string name="allgemeines">Allgemeines</string>
     <string name="weiter">Weiter</string>
     <string name="zurueck">Zurück</string>
+    <string name="duellmodus">Duellmodus</string>
+    <string name="einzelmodus">Einzelmodus</string>
+    <string name="spielmodus_w_hlen">Spielmodus wählen</string>
 
 
 </resources>

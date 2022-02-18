@@ -16,12 +16,24 @@
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_startseite.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\layout\\activity_startseite.xml"
+    },
+    {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_schwierigkeit.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\layout\\activity_schwierigkeit.xml"
+    },
+    {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_kategorie.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\layout\\activity_kategorie.xml"
     },
     {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
@@ -76,6 +88,10 @@
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_spielmodus.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\layout\\activity_spielmodus.xml"
+    },
+    {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
@@ -110,5 +126,9 @@
     {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_spiel.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\layout\\activity_spiel.xml"
     }
 ]

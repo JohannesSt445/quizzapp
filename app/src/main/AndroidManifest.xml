@@ -14,6 +14,12 @@
         android:theme="@style/Theme.QuizApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DuellTabelle"
+            android:exported="false" />
+        <activity
+            android:name=".Spielmodus"
+            android:exported="false" />
+        <activity
             android:name=".Spiel"
             android:exported="false" />
         <activity

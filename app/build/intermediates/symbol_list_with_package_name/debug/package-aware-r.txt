@@ -106,6 +106,7 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignmentMode
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -318,6 +319,8 @@ attr colorSurfaceVariant
 attr colorSwitchThumbNormal
 attr colorTertiary
 attr colorTertiaryContainer
+attr columnCount
+attr columnOrderPreserved
 attr commitIcon
 attr constraintRotate
 attr constraintSet
@@ -616,6 +619,9 @@ attr layout_anchorGravity
 attr layout_behavior
 attr layout_collapseMode
 attr layout_collapseParallaxMultiplier
+attr layout_column
+attr layout_columnSpan
+attr layout_columnWeight
 attr layout_constrainedHeight
 attr layout_constrainedWidth
 attr layout_constraintBaseline_creator
@@ -672,10 +678,14 @@ attr layout_goneMarginLeft
 attr layout_goneMarginRight
 attr layout_goneMarginStart
 attr layout_goneMarginTop
+attr layout_gravity
 attr layout_insetEdge
 attr layout_keyline
 attr layout_marginBaseline
 attr layout_optimizationLevel
+attr layout_row
+attr layout_rowSpan
+attr layout_rowWeight
 attr layout_scrollEffect
 attr layout_scrollFlags
 attr layout_scrollInterpolator
@@ -813,6 +823,7 @@ attr onPositiveCross
 attr onShow
 attr onStateTransition
 attr onTouchUp
+attr orientation
 attr overlapAnchor
 attr overlay
 attr paddingBottomNoButtons
@@ -880,6 +891,8 @@ attr rippleColor
 attr rotationCenterId
 attr round
 attr roundPercent
+attr rowCount
+attr rowOrderPreserved
 attr saturation
 attr scaleFromTextSize
 attr scrimAnimationDuration
@@ -1129,6 +1142,7 @@ attr triggerSlack
 attr ttcIndex
 attr upDuration
 attr useCompatPadding
+attr useDefaultMargins
 attr useMaterialThemeColors
 attr values
 attr verticalOffset
@@ -1869,6 +1883,7 @@ dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
 dimen def_drawer_elevation
 dimen default_dimension
+dimen default_gap
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
 dimen design_bottom_navigation_active_item_min_width
@@ -2512,17 +2527,27 @@ drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
+id AllgemeinesButton
+id BENButton
 id BOTTOM_END
 id BOTTOM_START
+id CButton
 id CTRL
+id DBButton
+id Duell_btn
+id Einzel_btn
 id FUNCTION
+id FragenkategorieButton
 id META
 id NO_DEBUG
+id PHPButton
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
+id Spiel_layout
+id Spielmodus_tv
 id TOP_END
 id TOP_START
 id User_et2
@@ -2584,6 +2609,8 @@ id actions
 id activity_chooser_view_content
 id add
 id alertTitle
+id alignBounds
+id alignMargins
 id aligned
 id all
 id allStates
@@ -2592,6 +2619,9 @@ id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
+id antwortA_btn
+id antwortC_btn
+id antwortD_btn
 id arc
 id asConfigured
 id async
@@ -2599,6 +2629,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id back_btn
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2643,6 +2674,7 @@ id container
 id content
 id contentPanel
 id contiguous
+id continue_btn
 id continuousVelocity
 id coordinator
 id cos
@@ -2680,6 +2712,7 @@ id dragRight
 id dragStart
 id dragUp
 id dropdown_menu
+id duellkoenigButton
 id easeIn
 id easeInOut
 id easeOut
@@ -2720,6 +2753,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id horizontal
 id horizontal_only
 id icon
 id icon_group
@@ -2727,6 +2761,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id info
@@ -2745,11 +2780,13 @@ id layout
 id left
 id leftToRight
 id legacy
+id leichtButton
 id line1
 id line3
 id linear
 id listMode
 id list_item
+id login_btn
 id login_tv
 id masked
 id match_constraint
@@ -2776,6 +2813,7 @@ id material_value_index
 id message
 id middle
 id mini
+id mittelButton
 id month_grid
 id month_navigation_bar
 id month_navigation_fragment_toggle
@@ -2849,12 +2887,14 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id punkte_tv
 id radio
 id ratio
 id rectangles
 id register_btn
 id register_tv
 id reverseSawtooth
+id richtig_falsch_tv
 id right
 id rightToLeft
 id right_icon
@@ -2865,6 +2905,8 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id schwerButton
+id schwierigkeitslisteButton
 id screen
 id scroll
 id scrollIndicatorDown
@@ -2901,6 +2943,8 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
+id spielStartenButton
+id spielmodusButton
 id spline
 id split_action_bar
 id spread
@@ -2944,6 +2988,7 @@ id test_radiobutton_app_button_tint
 id text
 id text2
 id textEnd
+id textSchwierigekitsgrad
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -2973,11 +3018,15 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id ueberschrift
+id ueberschriftKategorie
+id ueberschriftSchwierigkeit
 id unchecked
 id uniform
 id unlabeled
 id up
 id useLogo
+id vertical
 id vertical_only
 id view_offset_helper
 id view_transition
@@ -3081,9 +3130,14 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_kategorie
 layout activity_login
 layout activity_main
 layout activity_register
+layout activity_schwierigkeit
+layout activity_spiel
+layout activity_spielmodus
+layout activity_startseite
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3205,25 +3259,32 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string allgemeines
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
+string betriebssysteme
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
+string c
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string datenbanken
+string duellkoenig_tabelle
 string email
 string email_oder_username
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fragenkategorie
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string leicht
 string login
 string login_text
 string m3_ref_typeface_brand_display_regular
@@ -3271,6 +3332,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string mittel
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
@@ -3314,13 +3376,23 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string php
 string quizzapp
 string register
 string register_text
+string schwer
+string schwierigkeitsliste
+string schwierikeitsliste
 string search_menu_title
+string spiel_starten
+string spielmodus
 string status_bar_notification_info_overflow
 string username
+string waehle_eine_kategorie
+string waehle_einen_schwierigkeitsgrad
+string weiter
 string welcome
+string zurueck
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
@@ -4401,6 +4473,8 @@ styleable Fragment android_name android_id android_tag
 styleable FragmentContainerView android_name android_tag
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable GridLayout alignmentMode columnCount columnOrderPreserved orientation rowCount rowOrderPreserved useDefaultMargins
+styleable GridLayout_Layout android_layout_width android_layout_height android_layout_margin android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom layout_column layout_columnSpan layout_columnWeight layout_gravity layout_row layout_rowSpan layout_rowWeight
 styleable ImageFilterView altSrc blendSrc brightness contrast crossfade imagePanX imagePanY imageRotate imageZoom overlay round roundPercent saturation warmth
 styleable Insets paddingBottomSystemWindowInsets paddingLeftSystemWindowInsets paddingRightSystemWindowInsets paddingTopSystemWindowInsets
 styleable KeyAttribute android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_translationZ android_elevation curveFit framePosition motionProgress motionTarget transformPivotTarget transitionEasing transitionPathRotate

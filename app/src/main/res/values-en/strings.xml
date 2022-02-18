@@ -30,4 +30,7 @@
     <string name="allgemeines">General IT</string>
     <string name="weiter">Continue</string>
     <string name="zurueck">Back</string>
+    <string name="duellmodus">Multiplayer</string>
+    <string name="einzelmodus">Singleplayer</string>
+    <string name="spielmodus_w_hlen">Choose Gamemode</string>
 </resources>
