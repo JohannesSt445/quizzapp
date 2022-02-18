@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText email_et, passwort_et;
     private Button back;
     private String email, passwort;
-    private String URL = "http://quizzapp.chickenkiller.com/quizzapp/backend/api.php";
+    private String URL = "http://127.0.0.1/php/quizzapp_mysql/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +49,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    //Toast.makeText(MainActivity.this, response.toString(),Toast.LENGTH_LONG).show();
-                    Log.d("RESPONSE",response.toString());
-                    if (response.equals("Login erfolgreich")) {
-                        Intent intent = new Intent(Login.this, Erfolg.class);
+                    if (response.equals("success")) {
+                        Intent intent = new Intent(Login.this, startseite.class);
                         startActivity(intent);
                         finish();
-                    } else if (response.equals("Login ist fehlerhaft! Passwort oder Username ist falsch!") || response.equals("Dieser Benutzer existiert nicht!")) {
+                    } else if (response.equals("failure")) {
                         Toast.makeText(Login.this, "Ungültiger Login Id/Passwort", Toast.LENGTH_LONG).show();
                     }
                 }
