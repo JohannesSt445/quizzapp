@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="quizzapp">QuizzApp</string>
+    <string name="welcome">Willkommen!</string>
+    <string name="login">Login</string>
+    <string name="username">Benutzername</string>
+    <string name="passwort">Passwort</string>
+    <string name="register">Registrieren</string>
+    <string name="email">Email</string>
+    <string name="passwort_wiederholen">Passwort wiederholen</string>
+    <string name="email_oder_username">Email oder Benutzername</string>
+    <string name="register_text">Du hast bereits einen Account?\nRegistriere dich <u>hier</u>.</string>
+    <string name="login_text">Du hast noch keinen Account?\nLogin <u>hier</u>.</string>
+
+</resources>
