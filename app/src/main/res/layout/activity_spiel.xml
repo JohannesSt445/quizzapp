@@ -12,7 +12,9 @@
         android:id="@+id/duelltabelle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Wie viele Bits hat ein Byte?"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -24,28 +26,31 @@
         android:id="@+id/antwortC_btn"
         android:layout_width="190dp"
         android:layout_height="100dp"
+        android:text="6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <Button
         android:id="@+id/antwortD_btn"
         android:layout_width="190dp"
         android:layout_height="100dp"
+        android:text="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.538" />
 
     <Button
         android:id="@+id/Duell_btn"
         android:layout_width="190dp"
         android:layout_height="100dp"
+        android:text="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
@@ -57,6 +62,7 @@
         android:id="@+id/antwortA_btn"
         android:layout_width="190dp"
         android:layout_height="100dp"
+        android:text="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"

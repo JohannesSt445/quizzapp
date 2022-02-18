@@ -28,7 +28,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private Button register_btn, back;
     private String URL = "http://localhost/php/quizzapp_mysql/register.php";
     private String name, email, passwort, passwort_wdh;
-    
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
