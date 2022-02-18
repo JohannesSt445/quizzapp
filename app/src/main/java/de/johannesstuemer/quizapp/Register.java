@@ -26,7 +26,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private EditText username_et, email_et, passwort_et, passwort_wdh_et;
     private TextView status_tv;
     private Button register_btn, back;
-    private String URL = "http://quizzapp.chickenkiller.com/quizzapp/backend/api.php";
+    private String URL = "http://localhost/php/quizzapp_mysql/register.php";
     private String name, email, passwort, passwort_wdh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,10 +56,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    if (response.equals("Registriert!")) {
+                    if (response.equals("success")) {
                         status_tv.setText("Erfolgreich registriert");
                         register_btn.setClickable(false);
-                    } else if (response.equals("Registrierung fehlgeschlagen!") || response.equals("Benutzername oder E-Mail existieren bereits")) {
+                    } else if (response.equals("failure")) {
                         status_tv.setText("Etwas ist schief gelaufen!");
                     }
                 }

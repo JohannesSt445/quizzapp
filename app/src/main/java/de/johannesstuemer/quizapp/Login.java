@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText email_et, passwort_et;
     private Button back;
     private String email, passwort;
-    private String URL = "http://127.0.0.1/php/quizzapp_mysql/login.php";
+    private String URL = "http://localhost/php/quizzapp_mysql/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
