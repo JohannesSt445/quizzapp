@@ -28,6 +28,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button back;
     private String email, passwort;
     private String URL = "http://localhost/php/quizzapp_mysql/login.php";
+    private String user = "johannes";
+    private String pass = "123";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void login(View view){
         email = email_et.getText().toString().trim();
         passwort = passwort_et.getText().toString().trim();
-        if(!email.equals("") && !passwort.equals("")){
+        if(email.equals(user) && passwort.equals(pass)){
+            Intent intent = new Intent(Login.this, startseite.class);
+            startActivity(intent);
+            finish();
+        }else{
+            Toast.makeText(this, "Login Fehler, Username oder Passwort falsch", Toast.LENGTH_LONG).show();
+        }
+       /*
+       if(!email.equals("") && !passwort.equals("")){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -78,6 +88,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         else{
             Toast.makeText(this, "Felder müssen ausgefüllt werden!", Toast.LENGTH_LONG).show();
         }
+        */
     }
 
     public void register(View view){
