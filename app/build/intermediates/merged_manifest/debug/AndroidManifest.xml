@@ -23,7 +23,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.QuizApp" >
         <activity
-            android:name="de.johannesstuemer.quizapp.Login"
+            android:name="de.johannesstuemer.quizapp.view.Login"
             android:exported="false" />
         <activity
             android:name="de.johannesstuemer.quizapp.MainActivity"

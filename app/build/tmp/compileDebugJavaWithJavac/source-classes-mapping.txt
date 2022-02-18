@@ -7,8 +7,8 @@ de/johannesstuemer/quizapp/MainActivity.java
  de.johannesstuemer.quizapp.MainActivity$1
  de.johannesstuemer.quizapp.MainActivity$2
  de.johannesstuemer.quizapp.MainActivity$3
-de/johannesstuemer/quizapp/Login.java
- de.johannesstuemer.quizapp.Login
+de/johannesstuemer/quizapp/view/Login.java
+ de.johannesstuemer.quizapp.view.Login
 de/johannesstuemer/quizapp/Register.java
  de.johannesstuemer.quizapp.Register
  de.johannesstuemer.quizapp.Register$1
