@@ -69,7 +69,7 @@ function login($conn)
 
             $_SESSION['user'] = $u;
 
-            echo "Login erfolgreich";
+            json_encode("Login erfolgreich");
             exit();
         } else {
             echo $pass;
