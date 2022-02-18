@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\stud\\OneDrive - bib & FHDW\\Dokumente\\GitHub\\quizzapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+            "outputFile": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\stud\\OneDrive - bib & FHDW\\Dokumente\\GitHub\\quizzapp\\app\\src\\main\\res\\values-en\\strings.xml",
+                    "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\values-en\\strings.xml",
                     "from": {
-                        "startLines": "-1,-1,-1,-1,-1,-1,10,-1,-1,-1,-1,-1",
-                        "startColumns": "-1,-1,-1,-1,-1,-1,4,-1,-1,-1,-1,-1",
-                        "startOffsets": "-1,-1,-1,-1,-1,-1,419,-1,-1,-1,-1,-1",
-                        "endColumns": "-1,-1,-1,-1,-1,-1,67,-1,-1,-1,-1,-1",
-                        "endOffsets": "-1,-1,-1,-1,-1,-1,482,-1,-1,-1,-1,-1"
+                        "startLines": "2,9,11,5,13,7,10,3,8,12,6,4",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "57,378,488,196,646,284,419,103,331,555,237,150",
+                        "endColumns": "44,39,65,39,82,45,67,45,45,89,45,44",
+                        "endOffsets": "97,413,549,231,724,325,482,144,372,640,278,190"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
