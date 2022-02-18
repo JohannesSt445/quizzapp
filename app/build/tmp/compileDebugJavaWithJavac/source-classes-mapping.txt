@@ -8,6 +8,14 @@ de/johannesstuemer/quizapp/Erfolg.java
  de.johannesstuemer.quizapp.Erfolg
 de/johannesstuemer/quizapp/Spiel.java
  de.johannesstuemer.quizapp.Spiel
+de/johannesstuemer/quizapp/startseite.java
+ de.johannesstuemer.quizapp.startseite
+de/johannesstuemer/quizapp/Spielmodus.java
+ de.johannesstuemer.quizapp.Spielmodus
+de/johannesstuemer/quizapp/DuellTabelle.java
+ de.johannesstuemer.quizapp.DuellTabelle
+de/johannesstuemer/quizapp/view/Login.java
+ de.johannesstuemer.quizapp.view.Login
 de/johannesstuemer/quizapp/MainActivity.java
  de.johannesstuemer.quizapp.MainActivity
 de/johannesstuemer/quizapp/Login.java
@@ -15,14 +23,8 @@ de/johannesstuemer/quizapp/Login.java
  de.johannesstuemer.quizapp.Login$1
  de.johannesstuemer.quizapp.Login$2
  de.johannesstuemer.quizapp.Login$3
-de/johannesstuemer/quizapp/view/Login.java
- de.johannesstuemer.quizapp.view.Login
-de/johannesstuemer/quizapp/Spielmodus.java
- de.johannesstuemer.quizapp.Spielmodus
 de/johannesstuemer/quizapp/Register.java
  de.johannesstuemer.quizapp.Register
  de.johannesstuemer.quizapp.Register$1
  de.johannesstuemer.quizapp.Register$2
  de.johannesstuemer.quizapp.Register$3
-de/johannesstuemer/quizapp/startseite.java
- de.johannesstuemer.quizapp.startseite

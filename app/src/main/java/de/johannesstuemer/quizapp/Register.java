@@ -22,10 +22,10 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity implements View.OnClickListener {
     private EditText username_et, email_et, passwort_et, passwort_wdh_et;
     private TextView status_tv;
-    private Button register_btn;
+    private Button register_btn, back;
     private String URL = "http://quizzapp.chickenkiller.com/quizzapp/backend/api.php";
     private String name, email, passwort, passwort_wdh;
     @Override
@@ -38,7 +38,10 @@ public class Register extends AppCompatActivity {
         passwort_wdh_et = findViewById(R.id.passwortwdh_et);
         status_tv = findViewById(R.id.status_tv);
         register_btn = findViewById(R.id.register_btn);
+        back = findViewById(R.id.back_btn);
         name = email = passwort = passwort_wdh = "";
+
+        back.setOnClickListener(this);
     }
 
     public void register(View view){
@@ -85,5 +88,16 @@ public class Register extends AppCompatActivity {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
         finish();
+    }
+
+    public void back(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        back(v);
     }
 }

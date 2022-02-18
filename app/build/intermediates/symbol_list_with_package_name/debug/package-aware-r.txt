@@ -2478,6 +2478,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_multiuser
 drawable ic_user
 drawable ic_username
 drawable m3_appbar_background
@@ -2547,7 +2548,6 @@ id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
 id Spiel_layout
-id Spielmodus_tv
 id TOP_END
 id TOP_START
 id User_et2
@@ -2713,6 +2713,7 @@ id dragStart
 id dragUp
 id dropdown_menu
 id duellkoenigButton
+id duelltabelle_tv
 id easeIn
 id easeInOut
 id easeOut
@@ -2786,6 +2787,7 @@ id line3
 id linear
 id listMode
 id list_item
+id liste_tv
 id login_btn
 id login_tv
 id masked
@@ -3130,6 +3132,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_duell_tabelle
 layout activity_kategorie
 layout activity_login
 layout activity_main
@@ -3273,7 +3276,10 @@ string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
 string datenbanken
+string duellkoenig
 string duellkoenig_tabelle
+string duellmodus
+string einzelmodus
 string email
 string email_oder_username
 string error_icon_content_description
@@ -3386,6 +3392,7 @@ string schwierikeitsliste
 string search_menu_title
 string spiel_starten
 string spielmodus
+string spielmodus_w_hlen
 string status_bar_notification_info_overflow
 string username
 string waehle_eine_kategorie

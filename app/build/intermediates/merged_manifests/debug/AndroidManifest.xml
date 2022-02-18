@@ -24,13 +24,16 @@
         android:theme="@style/Theme.QuizApp"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="de.johannesstuemer.quizapp.DuellTabelle"
+            android:exported="false" />
+        <activity
             android:name="de.johannesstuemer.quizapp.Spielmodus"
             android:exported="false" />
         <activity
             android:name="de.johannesstuemer.quizapp.Spiel"
             android:exported="false" />
         <activity
-            android:name="de.johannesstuemer.quizapp.MainActivity"
+            android:name="de.johannesstuemer.quizapp.Login"
             android:exported="false" />
         <activity
             android:name="de.johannesstuemer.quizapp.Kategorie"
@@ -45,7 +48,7 @@
             android:name="de.johannesstuemer.quizapp.view.Login"
             android:exported="false" />
         <activity
-            android:name="de.johannesstuemer.quizapp.Login"
+            android:name="de.johannesstuemer.quizapp.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

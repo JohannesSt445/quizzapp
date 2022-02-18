@@ -12,6 +12,10 @@
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_multiuser.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\drawable\\ic_multiuser.xml"
+    },
+    {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
@@ -74,6 +78,10 @@
     {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_duell_tabelle.xml.flat",
+        "source": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\src\\main\\res\\layout\\activity_duell_tabelle.xml"
     },
     {
         "merged": "C:\\Users\\stud\\AndroidStudioProjects\\Quizzap-Projekt\\quizzapp\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_quizlogo.png.flat",

@@ -33,4 +33,5 @@
     <string name="duellmodus">Multiplayer</string>
     <string name="einzelmodus">Singleplayer</string>
     <string name="spielmodus_w_hlen">Choose Gamemode</string>
+    <string name="duellkoenig">Duelking</string>
 </resources>

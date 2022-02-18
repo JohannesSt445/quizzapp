@@ -12,7 +12,7 @@
         android:id="@+id/duelltabelle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Duellkönig"
+        android:text="@string/duellkoenig"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

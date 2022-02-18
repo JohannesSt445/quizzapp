@@ -32,6 +32,7 @@
     <string name="duellmodus">Duellmodus</string>
     <string name="einzelmodus">Einzelmodus</string>
     <string name="spielmodus_w_hlen">Spielmodus wählen</string>
+    <string name="duellkoenig">Duellkönig</string>
 
 
 </resources>
